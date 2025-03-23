@@ -1,0 +1,15 @@
+export const FOOTBALL_SPORTMONK_API_CONSTANTS = {
+  LEAGUE_ID: 600,
+  SEASON_ID: 23851,
+  BASE_URL: "https://api.sportmonks.com/v3/football",
+  API_KEY: process.env.API_FOOTBALL_KEY,
+};
+
+export const LIVE_STATE = ["INPLAY_1ST_HALF", "INPLAY_2ND_HALF"];
+
+export const LIVE_STATE_NAME = {
+  INPLAY_1ST_HALF: "1MT",
+  INPLAY_2ND_HALF: "2MT",
+  INPLAY_EXTRA_TIME: "PROL",
+  INPLAY_PENALTIES: "TIRS AU BUT",
+};

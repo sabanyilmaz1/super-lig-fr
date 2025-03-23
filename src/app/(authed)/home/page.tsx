@@ -1,0 +1,62 @@
+import { TwitterCta } from "@/components/common/twiitterCta";
+import { DisplayStandingHome } from "@/components/standings/display-standing-home";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
+export default async function HomePage() {
+  return (
+    <div>
+      <div>
+        {/* Mobile */}
+        <div className="p-3 md:hidden">
+          <Tabs defaultValue="results" className="w-full">
+            <TabsList className="grid w-full grid-cols-3">
+              <TabsTrigger value="recent">Récent</TabsTrigger>
+              <TabsTrigger value="results">Matchs</TabsTrigger>
+              <TabsTrigger value="stat">Statistiques</TabsTrigger>
+            </TabsList>
+            <TabsContent value="recent">
+              <div className="space-y-4 ">{/* <BlogHomeContent /> */}</div>
+            </TabsContent>
+            <TabsContent value="results">
+              <div className="space-y-4 ">
+                {/* <DisplayFixtureHome
+                  groupedFixtures={state.fixtures.groupedFixtures}
+                  round={state.fixtures.round}
+                /> */}
+                {/* <DisplayStandingHome standing={state.standing} /> */}
+              </div>
+            </TabsContent>
+            <TabsContent value="stat">
+              <div className="space-y-4 ">
+                {/* <DisplayTopScorersHome
+                  topScorers={state.topScorers}
+                  topAssists={state.topAssists}
+                /> */}
+                {/* <DisplayTopTeamsHome standing={state.standing} /> */}
+              </div>
+            </TabsContent>
+          </Tabs>
+        </div>
+        {/* Desktop Tablet */}
+        <div className="flex-col hidden mx-auto md:container md:pb-8 md:p-0 md:flex md:justify-between md:gap-4 md:flex-row md:pt-12">
+          <div className="md:w-[30%] space-y-4">
+            {/* <DisplayFixtureHome
+              groupedFixtures={state.fixtures.groupedFixtures}
+              round={state.fixtures.round}
+            /> */}
+            <DisplayStandingHome />
+            <TwitterCta />
+          </div>
+          <div className="md:w-[70%] space-y-4">
+            {/* <BlogHomeContent /> */}
+            {/* <DisplayTopScorersHome
+              topScorers={state.topScorers}
+              topAssists={state.topAssists}
+            /> */}
+            {/* <DisplayTopTeamsHome standing={state.standing} /> */}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
