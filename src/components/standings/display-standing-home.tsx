@@ -16,7 +16,7 @@ import {
   TypeDeveloperName,
 } from "@/lib/football-api/types/standing";
 import Image from "next/image";
-import { getStanding } from "@/use-cases/standing";
+import { getStanding } from "@/lib/football-api/use-cases/standing";
 
 type ColumnConfig = {
   header: string;

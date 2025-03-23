@@ -1,5 +1,8 @@
 import { TwitterCta } from "@/components/common/twiitterCta";
+import { DisplayFixtureHome } from "@/components/fixture/display-fixture-home";
 import { DisplayStandingHome } from "@/components/standings/display-standing-home";
+import { DisplayTopScorersHome } from "@/components/standings/display-top-scorers-home";
+import { DisplayTopTeamsHome } from "@/components/standings/display-top-teams-home";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default async function HomePage() {
@@ -19,20 +22,14 @@ export default async function HomePage() {
             </TabsContent>
             <TabsContent value="results">
               <div className="space-y-4 ">
-                {/* <DisplayFixtureHome
-                  groupedFixtures={state.fixtures.groupedFixtures}
-                  round={state.fixtures.round}
-                /> */}
-                {/* <DisplayStandingHome standing={state.standing} /> */}
+                <DisplayFixtureHome />
+                <DisplayStandingHome />
               </div>
             </TabsContent>
             <TabsContent value="stat">
               <div className="space-y-4 ">
-                {/* <DisplayTopScorersHome
-                  topScorers={state.topScorers}
-                  topAssists={state.topAssists}
-                /> */}
-                {/* <DisplayTopTeamsHome standing={state.standing} /> */}
+                <DisplayTopScorersHome />
+                <DisplayTopTeamsHome />
               </div>
             </TabsContent>
           </Tabs>
@@ -40,20 +37,14 @@ export default async function HomePage() {
         {/* Desktop Tablet */}
         <div className="flex-col hidden mx-auto md:container md:pb-8 md:p-0 md:flex md:justify-between md:gap-4 md:flex-row md:pt-12">
           <div className="md:w-[30%] space-y-4">
-            {/* <DisplayFixtureHome
-              groupedFixtures={state.fixtures.groupedFixtures}
-              round={state.fixtures.round}
-            /> */}
+            <DisplayFixtureHome />
             <DisplayStandingHome />
             <TwitterCta />
           </div>
           <div className="md:w-[70%] space-y-4">
             {/* <BlogHomeContent /> */}
-            {/* <DisplayTopScorersHome
-              topScorers={state.topScorers}
-              topAssists={state.topAssists}
-            /> */}
-            {/* <DisplayTopTeamsHome standing={state.standing} /> */}
+            <DisplayTopScorersHome />
+            <DisplayTopTeamsHome />
           </div>
         </div>
       </div>
