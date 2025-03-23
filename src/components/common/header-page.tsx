@@ -1,6 +1,7 @@
+"use client";
 import { motion } from "motion/react";
 
-export const HeaderPage = ({
+export const PageHeader = ({
   title,
   subtitle,
 }: {

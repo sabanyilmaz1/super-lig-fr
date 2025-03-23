@@ -29,7 +29,7 @@ const navbarItems = [
   {
     id: 3,
     name: "CLASSEMENT",
-    link: "/standings",
+    link: "/standing",
     active: true,
   },
   {
