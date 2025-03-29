@@ -12,6 +12,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { UserButton, useUser } from "@clerk/nextjs";
 import Link from "next/link";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
 
 const navbarItems = [
   {
@@ -24,7 +25,7 @@ const navbarItems = [
     id: 2,
     name: "CALENDRIER",
     link: "/fixture",
-    active: true,
+    active: false,
   },
   {
     id: 3,
@@ -36,7 +37,7 @@ const navbarItems = [
     id: 4,
     name: "RÉSULTATS",
     link: "/results",
-    active: true,
+    active: false,
   },
   {
     id: 5,
@@ -69,16 +70,37 @@ export const Navbar = () => {
           />
         </Link>
         <nav className="items-center hidden gap-10 text-sm font-medium md:flex">
-          {navbarItems.map((item) => (
-            <Link
-              className="relative text-xl font-bold group"
-              key={item.id}
-              href={item.link}
-            >
-              {item.name}
-              <span className="absolute left-0 w-full h-1 transition-transform duration-300 ease-out origin-left scale-x-0 bg-white -bottom-2 group-hover:scale-x-100"></span>
-            </Link>
-          ))}
+          {navbarItems.map((item) => {
+            if (!item.active) {
+              return (
+                <button
+                  className={cn(
+                    "relative text-xl font-bold group cursor-not-allowed",
+                    !item.active && "text-gray-100"
+                  )}
+                  key={item.id}
+                  disabled
+                >
+                  {item.name}
+                  <span className="absolute left-0 w-full h-1 transition-transform duration-300 ease-out origin-left scale-x-0 bg-white -bottom-2 group-hover:scale-x-100"></span>
+                </button>
+              );
+            }
+
+            return (
+              <Link
+                className={cn(
+                  "relative text-xl font-bold group",
+                  item.active && "text-white"
+                )}
+                key={item.id}
+                href={item.link}
+              >
+                {item.name}
+                <span className="absolute left-0 w-full h-1 transition-transform duration-300 ease-out origin-left scale-x-0 bg-white -bottom-2 group-hover:scale-x-100"></span>
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="flex items-center gap-4">
