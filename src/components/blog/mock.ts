@@ -1,10 +1,8 @@
 export const articles = [
   {
-    _id: "jd75zpw72swqrdswg9ackbghw97cmy6k",
+    id: "jd75zpw72swqrdswg9ackbghw97cmy6k",
     authorId: "j577g714ng6j5c677h3khvsvv17cnfpf",
-    content: `# Galatasaray : Une domination incontestée
-  
-  **Galatasaray** continue de dominer la Süper Lig turque cette saison. Après 27 journées, l'équipe stambouliote totalise 71 points, avec 22 victoires et 5 nuls, restant invaincue jusqu'à présent. Ils possèdent une avance de 9 points sur leur rival, **Fenerbahçe**, qui compte 62 points en 26 matchs.
+    content: `**Galatasaray** continue de dominer la Süper Lig turque cette saison. Après 27 journées, l'équipe stambouliote totalise 71 points, avec 22 victoires et 5 nuls, restant invaincue jusqu'à présent. Ils possèdent une avance de 9 points sur leur rival, **Fenerbahçe**, qui compte 62 points en 26 matchs.
   
   ## Une attaque prolifique
   
@@ -17,11 +15,9 @@ export const articles = [
   },
   {
     _creationTime: 1742746648438.606,
-    _id: "jd78bpwr2ehn6hmw1t3jwqz1z97cnpa5",
+    id: "jd78bpwr2ehn6hmw1t3jwqz1z97cnpa5",
     authorId: "j577g714ng6j5c677h3khvsvv17cnfpf",
-    content: `# Fenerbahçe : Lutte acharnée pour le titre
-  
-  Sous la direction de **José Mourinho**, Fenerbahçe occupe la deuxième place du championnat avec 62 points en 26 matchs. Malgré une attaque efficace menée par **Youssef En-Nesyri**, auteur de 16 buts cette saison, l'équipe peine à rattraper Galatasaray.
+    content: `Sous la direction de **José Mourinho**, Fenerbahçe occupe la deuxième place du championnat avec 62 points en 26 matchs. Malgré une attaque efficace menée par **Youssef En-Nesyri**, auteur de 16 buts cette saison, l'équipe peine à rattraper Galatasaray.
   
   ## Récents déboires
   
@@ -30,10 +26,9 @@ export const articles = [
   },
   {
     _creationTime: 1742746648438.6062,
-    _id: "jd70vnrpapwy3fs5g3x45cawe57cm04c",
+    id: "jd70vnrpapwy3fs5g3x45cawe57cm04c",
     authorId: "j577g714ng6j5c677h3khvsvv17cnfpf",
-    content: `# Samsunspor : La révélation inattendue
-  
+    content: `
   Promu cette saison, **Samsunspor** crée la surprise en Süper Lig en se hissant à la troisième place avec 51 points en 27 matchs. Leur solidité défensive et leur efficacité offensive leur ont permis de rivaliser avec les cadors du championnat.
   
   ## Un test décisif à venir
@@ -43,7 +38,7 @@ export const articles = [
   },
   {
     _creationTime: 1742746648438.6064,
-    _id: "jd78ckn4qa856k7w1093mb0g617cm5hh",
+    id: "jd78ckn4qa856k7w1093mb0g617cm5hh",
     authorId: "j577g714ng6j5c677h3khvsvv17cnfpf",
     content: `# Controverse sur le terrain
   
@@ -52,7 +47,7 @@ export const articles = [
   },
   {
     _creationTime: 1742746648438.6067,
-    _id: "jd78v3dnbnzc8txd9nztyh5rbn7cmmvs",
+    id: "jd78v3dnbnzc8txd9nztyh5rbn7cmmvs",
     authorId: "j577g714ng6j5c677h3khvsvv17cnfpf",
     content: `# Osimhen : L'homme providentiel
   
