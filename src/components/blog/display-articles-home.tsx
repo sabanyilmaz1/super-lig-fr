@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import Link from "next/link";
 import Image from "next/image";
 import { articles } from "./mock";
@@ -7,8 +7,7 @@ import { MarkdownViewer } from "../common/markdown-viewer";
 export const DisplayArticlesHome = () => {
   return (
     <Card className="border-2 border-redsuperlig bg-gradient-to-r from-red-700 to-red-500 shadow-lg min-h-[400px]">
-      <CardHeader></CardHeader>
-      <CardContent>
+      <CardContent className="mt-6">
         <div className="grid grid-cols-1 gap-3  lg:grid-cols-[700px_auto]">
           {/* Article Principal */}
           <Card className="overflow-hidden shadow-none  bg-transparent !border-none text-white">
@@ -27,12 +26,15 @@ export const DisplayArticlesHome = () => {
                   <Link href={"#"}>{articles[0].title}</Link>
                 </h2>
                 <div className="text-sm italic">Publié le 13 octobre 2024</div>
-                <article>
+                <article className="!text-xs">
                   <MarkdownViewer
                     markdown={articles[0].content.slice(0, 130) + " ..."}
                   />
                 </article>
-                <Link href={"#"} className="inline-block hover:underline">
+                <Link
+                  href={"#"}
+                  className="inline-block hover:underline text-sm md:text-base"
+                >
                   Lire la suite →
                 </Link>
               </div>
@@ -64,7 +66,7 @@ export const DisplayArticlesHome = () => {
                             alt={article.title}
                             width={250}
                             height={200}
-                            className=" max-h-[100px] transition-transform duration-300 rounded-md hover:scale-110 "
+                            className="max-h-[80px] md:max-h-[100px] transition-transform duration-300 rounded-md hover:scale-110 "
                           />
                         </div>
                         <h3 className="text-xs font-semibold max-w-[250px] ">
