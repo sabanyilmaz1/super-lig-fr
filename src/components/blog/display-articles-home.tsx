@@ -26,9 +26,9 @@ export const DisplayArticlesHome = () => {
                   <Link href={"#"}>{articles[0].title}</Link>
                 </h2>
                 <div className="text-sm italic">Publié le 13 octobre 2024</div>
-                <article className="!text-xs">
+                <article className="!text-xs max-w-sm">
                   <MarkdownViewer
-                    markdown={articles[0].content.slice(0, 130) + " ..."}
+                    markdown={articles[0].content.slice(0, 180) + " ..."}
                   />
                 </article>
                 <Link
