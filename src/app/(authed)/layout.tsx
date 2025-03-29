@@ -1,7 +1,7 @@
 import { ClubsHeader } from "@/components/common/clubs-header";
 import { Navbar } from "@/components/common/navbar";
 import SelectTeamInit from "@/components/select-team-init";
-import { addUser } from "@/use-cases/user";
+import { addUser } from "@/lib/prisma/use-cases/user";
 export default async function AuthedLayout({
   children,
 }: {

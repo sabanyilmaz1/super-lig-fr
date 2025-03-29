@@ -1,7 +1,7 @@
 "use server";
 
 import "server-only";
-import { getUser, updateUserFavoriteTeam } from "./use-cases/user";
+import { getUser, updateUserFavoriteTeam } from "./lib/prisma/use-cases/user";
 import { redirect } from "next/navigation";
 
 export const updateUserFavoriteTeamAction = async (
