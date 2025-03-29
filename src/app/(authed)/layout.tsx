@@ -1,20 +1,20 @@
 import { ClubsHeader } from "@/components/common/clubs-header";
 import { Navbar } from "@/components/common/navbar";
 import SelectTeamInit from "@/components/select-team-init";
-import { getUser } from "@/use-cases/user";
+import { addUser } from "@/use-cases/user";
 export default async function AuthedLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const { user } = await getUser();
+  const { user } = await addUser();
 
   if (!user.favoriteTeamId) {
     return (
       <div>
         <SelectTeamInit />
         <ClubsHeader />
-        <Navbar />
+        <Navbar user={user} />
         {children}
       </div>
     );
@@ -23,7 +23,7 @@ export default async function AuthedLayout({
   return (
     <div>
       <ClubsHeader />
-      <Navbar />
+      <Navbar user={user} />
       {children}
     </div>
   );

@@ -9,10 +9,11 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { UserButton, useUser } from "@clerk/nextjs";
 import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { ProfileButton } from "./profile-button";
+import { User } from "../../../prisma/generated/client";
 
 const navbarItems = [
   {
@@ -53,10 +54,8 @@ const navbarItems = [
   },
 ];
 
-export const Navbar = () => {
+export const Navbar = ({ user }: { user: User }) => {
   const [open, setOpen] = useState(false);
-  const { user } = useUser();
-
   return (
     <header className="sticky top-0 z-50 w-full text-white border-b bg-redsuperlig">
       <div className="container flex items-center justify-between h-16 px-4 mx-auto md:px-0">
@@ -130,18 +129,7 @@ export const Navbar = () => {
               </div>
             </SheetContent>
           </Sheet>
-          <div className="flex items-center gap-4">
-            <p className="hidden md:block text-lg font-bold">
-              {user?.username}
-            </p>
-            <UserButton
-              appearance={{
-                elements: {
-                  avatarBox: "!w-10 !h-10",
-                },
-              }}
-            />
-          </div>
+          <ProfileButton user={user} />
         </div>
       </div>
     </header>

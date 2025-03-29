@@ -2,7 +2,7 @@
 import prisma from "@/lib/prisma";
 import { currentUser } from "@clerk/nextjs/server";
 
-export const getUser = async () => {
+export const addUser = async () => {
   const user = await currentUser();
   if (!user) {
     throw new Error("User not found");
@@ -25,6 +25,20 @@ export const getUser = async () => {
   return {
     user: userExists,
   };
+};
+
+export const getUser = async () => {
+  const user = await currentUser();
+  if (!user) {
+    return null;
+  }
+  const userExists = await prisma.user.findUnique({
+    where: { clerkId: user.id },
+  });
+  if (!userExists) {
+    return null;
+  }
+  return userExists;
 };
 
 export const updateUserFavoriteTeam = async (

@@ -9,7 +9,7 @@ export const updateUserFavoriteTeamAction = async (
   formData: FormData
 ) => {
   const teamId = formData.get("teamId");
-  const { user } = await getUser();
+  const user = await getUser();
   console.log(user, teamId);
   if (!user || !teamId || isNaN(Number(teamId))) {
     return {
