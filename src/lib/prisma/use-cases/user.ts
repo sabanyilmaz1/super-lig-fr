@@ -22,8 +22,15 @@ export const addUser = async () => {
       user: newUser,
     };
   }
+  //update with clerk user
+  const updatedUser = await prisma.user.update({
+    where: { id: userExists.id },
+    data: {
+      name: user?.username,
+    },
+  });
   return {
-    user: userExists,
+    user: updatedUser,
   };
 };
 
