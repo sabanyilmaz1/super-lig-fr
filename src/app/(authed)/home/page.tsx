@@ -1,5 +1,6 @@
 import { DisplayArticlesHome } from "@/components/blog/display-articles-home";
 import { TwitterCta } from "@/components/common/twiitterCta";
+import VideoHome from "@/components/common/video-home";
 import { DisplayFixtureHome } from "@/components/fixture/display-fixture-home";
 import { DisplayStandingHome } from "@/components/standings/display-standing-home";
 import { DisplayTopScorersHome } from "@/components/standings/display-top-scorers-home";
@@ -48,6 +49,7 @@ export default async function HomePage() {
             <DisplayArticlesHome />
             <DisplayTopScorersHome />
             <DisplayTopTeamsHome />
+            <VideoHome videoIds={["YBEElR1xZD0", "jOQxfBg2mZA"]} />
           </div>
         </div>
       </div>

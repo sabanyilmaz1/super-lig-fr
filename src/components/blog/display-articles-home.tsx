@@ -76,8 +76,6 @@ export const DisplayArticlesHome = () => {
                 ))}
             </div>
           </div>
-          {/* Twitters */}
-          <div></div>
         </div>
       </CardContent>
     </Card>

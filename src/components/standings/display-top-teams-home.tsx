@@ -108,7 +108,7 @@ export const TopTeamHome = ({
                   </span>
                 </div>
               </div>
-              <div className="text-6xl font-bold text-white">
+              <div className="text-3xl md:text-6xl font-bold text-white">
                 {
                   item.details.find(
                     (detail) => detail.type.developer_name === type

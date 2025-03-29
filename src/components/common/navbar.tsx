@@ -69,7 +69,7 @@ export const Navbar = ({ user }: { user: User }) => {
                 <button
                   className={cn(
                     "relative text-xl font-bold group cursor-not-allowed",
-                    !item.active && "text-gray-100"
+                    !item.active && "text-gray-100 opacity-50"
                   )}
                   key={item.id}
                   disabled

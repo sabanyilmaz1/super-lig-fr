@@ -89,7 +89,9 @@ export const TopPlayersHome = ({
                   <span className="text-white">{item.participant.name}</span>
                 </div>
               </div>
-              <div className="text-6xl font-bold text-white">{item.total}</div>
+              <div className=" text-3xl md:text-6xl font-bold text-white">
+                {item.total}
+              </div>
               <div className="relative flex items-center justify-center w-20 h-24 ">
                 <Image
                   src={item.player.image_path}
