@@ -1,6 +1,6 @@
 "use client";
 import { ExternalLinkIcon } from "lucide-react";
-import { teams } from "@/data/teams";
+import { teams } from "@/lib/football-api/teams";
 import Image from "next/image";
 
 export const ClubsHeader = () => {

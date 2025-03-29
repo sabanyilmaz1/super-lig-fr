@@ -15,7 +15,7 @@ import {
   DrawerTitle,
 } from "@/components/ui/drawer";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { teams } from "@/data/teams";
+import { teams } from "@/lib/football-api/teams";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import Image from "next/image";
 import { updateUserFavoriteTeamAction } from "@/action";

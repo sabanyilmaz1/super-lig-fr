@@ -13,7 +13,7 @@ import {
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 import { User } from "../../../prisma/generated/client";
-import { teams } from "@/data/teams";
+import { teams } from "@/lib/football-api/teams";
 
 export const ProfileButton = ({ user }: { user: User }) => {
   const { user: userClerk } = useUser();
