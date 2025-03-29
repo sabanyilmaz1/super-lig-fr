@@ -22,6 +22,7 @@ export default async function HomePage() {
             <TabsContent value="recent">
               <div className="space-y-4 ">
                 <DisplayArticlesHome />
+                <VideoHome />
               </div>
             </TabsContent>
             <TabsContent value="results">
@@ -49,7 +50,7 @@ export default async function HomePage() {
             <DisplayArticlesHome />
             <DisplayTopScorersHome />
             <DisplayTopTeamsHome />
-            <VideoHome videoIds={["YBEElR1xZD0", "jOQxfBg2mZA"]} />
+            <VideoHome />
           </div>
         </div>
       </div>

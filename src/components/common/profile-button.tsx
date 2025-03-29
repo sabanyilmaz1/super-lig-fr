@@ -36,7 +36,7 @@ export const ProfileButton = ({ user }: { user: User }) => {
                 }
                 width={50}
                 height={50}
-                className="rounded-full ml-4 w-7 h-7 md:w-14 md:h-14"
+                className="rounded-full ml-4 w-7 h-7 md:w-12 md:h-12"
               />
             ) : (
               <Image

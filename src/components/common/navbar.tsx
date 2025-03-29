@@ -48,7 +48,7 @@ const navbarItems = [
   },
   {
     id: 6,
-    name: "FAIS TON ONZE",
+    name: "TON 11",
     link: "/fais-ton-onze",
     active: false,
   },
