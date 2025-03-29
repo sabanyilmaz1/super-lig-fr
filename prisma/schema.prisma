@@ -18,4 +18,10 @@ model User {
   clerkId String @unique
   name  String?
   favoriteTeamId Int?
+  role Role @default(USER)
+}
+
+enum Role {
+  USER
+  WRITER
 }
