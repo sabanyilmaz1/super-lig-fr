@@ -39,6 +39,7 @@ export const FixtureDisplayParticipants = ({
             alt={participantHome?.name ?? ""}
             width={32}
             height={32}
+            className="w-8 h-8 object-contain"
           />
         </div>
       )}
@@ -50,6 +51,7 @@ export const FixtureDisplayParticipants = ({
               alt={participantAway?.name ?? ""}
               width={32}
               height={32}
+              className="w-8 h-8 object-contain"
             />
           </div>
           <p className="font-extrabold uppercase text-start">

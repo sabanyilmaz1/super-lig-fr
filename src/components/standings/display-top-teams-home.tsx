@@ -115,12 +115,13 @@ export const TopTeamHome = ({
                   )?.value
                 }
               </div>
-              <div className="relative flex items-center justify-center w-20 h-24 ">
+              <div className="relative flex items-center justify-center w-20 h-24">
                 <Image
                   src={item.participant.image_path}
                   alt={item.participant.name}
                   fill
-                  className="object-cover rounded-full "
+                  sizes="(max-width: 80px) 100vw, 80px"
+                  className="object-contain rounded-full"
                 />
               </div>
             </div>
@@ -143,7 +144,8 @@ export const TopTeamHome = ({
                       src={item.participant.image_path}
                       alt={item.participant.name}
                       fill
-                      className="object-cover rounded-full "
+                      sizes="(max-width: 48px) 100vw, 48px"
+                      className="object-contain rounded-full"
                     />
                   </div>
 

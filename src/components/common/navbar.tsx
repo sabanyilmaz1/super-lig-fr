@@ -61,13 +61,7 @@ export const Navbar = () => {
     <header className="sticky top-0 z-50 w-full text-white border-b bg-redsuperlig">
       <div className="container flex items-center justify-between h-16 px-4 mx-auto md:px-0">
         <Link href="/home" className="flex items-center gap-2">
-          <Image
-            src="/logo.png"
-            alt="Superlig"
-            className="w-16 md:w-20 md:h-20"
-            width={80}
-            height={80}
-          />
+          <Image src="/logo.png" alt="Superlig" width={80} height={80} />
         </Link>
         <nav className="items-center hidden gap-10 text-sm font-medium md:flex">
           {navbarItems.map((item) => {

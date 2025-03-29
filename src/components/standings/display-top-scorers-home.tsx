@@ -82,7 +82,7 @@ export const TopPlayersHome = ({
                         alt={item.participant.name}
                         width={24}
                         height={24}
-                        className="rounded-full"
+                        className="w-6 h-6 object-contain rounded-full"
                       />
                     )}
                   </div>
@@ -95,7 +95,8 @@ export const TopPlayersHome = ({
                   src={item.player.image_path}
                   alt={item.player.name}
                   fill
-                  className="object-cover rounded-full "
+                  sizes="(max-width: 80px) 100vw, 80px"
+                  className="object-contain rounded-full"
                 />
               </div>
             </div>
@@ -119,7 +120,7 @@ export const TopPlayersHome = ({
                       alt={item.player.name}
                       width={48}
                       height={48}
-                      className="object-cover rounded-full "
+                      className="w-12 h-12 object-contain rounded-full"
                     />
                   </div>
                   {item.participant.image_path && (
@@ -128,7 +129,7 @@ export const TopPlayersHome = ({
                       alt={item.participant.name}
                       width={24}
                       height={24}
-                      className="object-cover rounded-full "
+                      className="w-6 h-6 object-contain rounded-full"
                     />
                   )}
                   <div>

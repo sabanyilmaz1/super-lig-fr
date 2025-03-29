@@ -19,9 +19,10 @@ export const ClubsHeader = () => {
             <Image
               src={team.image_path}
               alt={team.name}
-              className="w-8 h-8 transition-transform ease-in-out hover:scale-125"
               width={32}
               height={32}
+              className="w-8 h-8 object-contain transition-transform ease-in-out hover:scale-125"
+              style={{ width: "auto", height: "auto" }}
             />
           </button>
         ))}

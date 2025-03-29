@@ -86,9 +86,10 @@ export const DisplayStandingHome = async () => {
           <Image
             src={value.image || ""}
             alt={value.name || ""}
-            className="w-5 h-5"
             width={20}
             height={20}
+            className="w-5 h-5 object-contain"
+            style={{ width: "auto", height: "auto" }}
           />
           <p className="font-bold text-redsuperlig">{value.name || ""}</p>
         </div>
