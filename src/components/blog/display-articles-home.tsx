@@ -9,21 +9,21 @@ export const DisplayArticlesHome = () => {
     <Card className="border-2 border-redsuperlig bg-gradient-to-r from-red-700 to-red-500 shadow-lg min-h-[400px]">
       <CardHeader></CardHeader>
       <CardContent>
-        <div className="grid grid-cols-1 gap-3  lg:grid-cols-[400px_200px_auto]">
+        <div className="grid grid-cols-1 gap-3  lg:grid-cols-[700px_auto]">
           {/* Article Principal */}
           <Card className="overflow-hidden shadow-none  bg-transparent !border-none text-white">
             <CardContent className="space-y-4 !p-0">
               <div className="relative w-[95%]  rounded-lg overflow-hidden">
                 <Image
-                  src={`/blog/article1.jpg`}
+                  src={`/blog/article1.png`}
                   alt="Article 1"
-                  width={400}
-                  height={400}
-                  className="transition-transform duration-300 hover:scale-110"
+                  width={700}
+                  height={200}
+                  className="transition-transform duration-300 hover:scale-110 max-h-[250px]"
                 />
               </div>
               <div className="space-y-4 md:px-6">
-                <h2 className="text-lg font-bold md:text-xl ">
+                <h2 className="text-base font-bold md:text-lg ">
                   <Link href={"#"}>{articles[0].title}</Link>
                 </h2>
                 <div className="text-sm italic">Publié le 13 octobre 2024</div>
@@ -62,12 +62,12 @@ export const DisplayArticlesHome = () => {
                                 : "/blog/article4.jpg"
                             }
                             alt={article.title}
-                            width={200}
+                            width={250}
                             height={200}
-                            className=" transition-transform duration-300 rounded-md hover:scale-110 "
+                            className=" max-h-[100px] transition-transform duration-300 rounded-md hover:scale-110 "
                           />
                         </div>
-                        <h3 className="text-xs font-semibold ">
+                        <h3 className="text-xs font-semibold max-w-[250px] ">
                           <Link href={`#`}>{article.title}</Link>
                         </h3>
                       </div>
