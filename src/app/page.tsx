@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 import { useCallback, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { teams } from "@/data/teams";
+import { teams } from "@/lib/football-api/teams";
 
 export default function Home() {
   return (

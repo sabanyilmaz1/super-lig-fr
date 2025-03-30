@@ -9,9 +9,11 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { UserButton, useUser } from "@clerk/nextjs";
 import Link from "next/link";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
+import { ProfileButton } from "./profile-button";
+import { User } from "../../../prisma/generated/client";
 
 const navbarItems = [
   {
@@ -24,7 +26,7 @@ const navbarItems = [
     id: 2,
     name: "CALENDRIER",
     link: "/fixture",
-    active: true,
+    active: false,
   },
   {
     id: 3,
@@ -36,7 +38,7 @@ const navbarItems = [
     id: 4,
     name: "RÉSULTATS",
     link: "/results",
-    active: true,
+    active: false,
   },
   {
     id: 5,
@@ -46,39 +48,52 @@ const navbarItems = [
   },
   {
     id: 6,
-    name: "FAIS TON ONZE",
+    name: "TON 11",
     link: "/fais-ton-onze",
     active: false,
   },
 ];
 
-export const Navbar = () => {
+export const Navbar = ({ user }: { user: User }) => {
   const [open, setOpen] = useState(false);
-  const { user } = useUser();
-
   return (
     <header className="sticky top-0 z-50 w-full text-white border-b bg-redsuperlig">
       <div className="container flex items-center justify-between h-16 px-4 mx-auto md:px-0">
         <Link href="/home" className="flex items-center gap-2">
-          <Image
-            src="/logo.png"
-            alt="Superlig"
-            className="w-16 md:w-20 md:h-20"
-            width={80}
-            height={80}
-          />
+          <Image src="/logo.png" alt="Superlig" width={80} height={80} />
         </Link>
         <nav className="items-center hidden gap-10 text-sm font-medium md:flex">
-          {navbarItems.map((item) => (
-            <Link
-              className="relative text-xl font-bold group"
-              key={item.id}
-              href={item.link}
-            >
-              {item.name}
-              <span className="absolute left-0 w-full h-1 transition-transform duration-300 ease-out origin-left scale-x-0 bg-white -bottom-2 group-hover:scale-x-100"></span>
-            </Link>
-          ))}
+          {navbarItems.map((item) => {
+            if (!item.active) {
+              return (
+                <button
+                  className={cn(
+                    "relative text-xl font-bold group cursor-not-allowed",
+                    !item.active && "text-gray-100 opacity-50"
+                  )}
+                  key={item.id}
+                  disabled
+                >
+                  {item.name}
+                  <span className="absolute left-0 w-full h-1 transition-transform duration-300 ease-out origin-left scale-x-0 bg-white -bottom-2 group-hover:scale-x-100"></span>
+                </button>
+              );
+            }
+
+            return (
+              <Link
+                className={cn(
+                  "relative text-xl font-bold group",
+                  item.active && "text-white"
+                )}
+                key={item.id}
+                href={item.link}
+              >
+                {item.name}
+                <span className="absolute left-0 w-full h-1 transition-transform duration-300 ease-out origin-left scale-x-0 bg-white -bottom-2 group-hover:scale-x-100"></span>
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="flex items-center gap-4">
@@ -114,18 +129,7 @@ export const Navbar = () => {
               </div>
             </SheetContent>
           </Sheet>
-          <div className="flex items-center gap-4">
-            <p className="hidden md:block text-lg font-bold">
-              {user?.username}
-            </p>
-            <UserButton
-              appearance={{
-                elements: {
-                  avatarBox: "!w-10 !h-10",
-                },
-              }}
-            />
-          </div>
+          <ProfileButton user={user} />
         </div>
       </div>
     </header>

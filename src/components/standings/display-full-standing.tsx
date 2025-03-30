@@ -63,17 +63,12 @@ export const DisplayFullStanding = async () => {
                     >
                       {column.key === "team.name" &&
                         item.participant.image_path && (
-                          //   <img
-                          //     src={item.participant.image_path}
-                          //     alt={item.participant.name}
-                          //     className="inline-block w-8 h-8 mr-2"
-                          //   />
                           <Image
                             src={item.participant.image_path}
                             alt={item.participant.name}
-                            className="inline-block w-8 h-8 mr-2"
                             width={32}
                             height={32}
+                            className="w-8 h-8 object-contain"
                           />
                         )}
                       {column.key === "team.name" ? (

@@ -1,4 +1,6 @@
+import { DisplayArticlesHome } from "@/components/blog/display-articles-home";
 import { TwitterCta } from "@/components/common/twiitterCta";
+import VideoHome from "@/components/common/video-home";
 import { DisplayFixtureHome } from "@/components/fixture/display-fixture-home";
 import { DisplayStandingHome } from "@/components/standings/display-standing-home";
 import { DisplayTopScorersHome } from "@/components/standings/display-top-scorers-home";
@@ -18,7 +20,10 @@ export default async function HomePage() {
               <TabsTrigger value="stat">Statistiques</TabsTrigger>
             </TabsList>
             <TabsContent value="recent">
-              <div className="space-y-4 ">{/* <BlogHomeContent /> */}</div>
+              <div className="space-y-4 ">
+                <DisplayArticlesHome />
+                <VideoHome />
+              </div>
             </TabsContent>
             <TabsContent value="results">
               <div className="space-y-4 ">
@@ -42,9 +47,10 @@ export default async function HomePage() {
             <TwitterCta />
           </div>
           <div className="md:w-[70%] space-y-4">
-            {/* <BlogHomeContent /> */}
+            <DisplayArticlesHome />
             <DisplayTopScorersHome />
             <DisplayTopTeamsHome />
+            <VideoHome />
           </div>
         </div>
       </div>
