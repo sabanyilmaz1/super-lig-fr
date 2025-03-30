@@ -1,37 +1,144 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Super Lig France
+
+A modern web application dedicated to Turkish football, offering in-depth analysis, live statistics, and a passionate community around the Turkish Super Lig.
+
+## Key Features
+
+- Live match scores
+- Detailed player ratings
+- In-depth performance analysis
+- Comprehensive team and player statistics
+- Modern and responsive interface
+
+## Tech Stack
+
+- **Framework**: Next.js
+- **Language**: TypeScript
+- **Database**:
+  - Prisma ORM
+  - Neon (PostgreSQL serverless)
+- **Authentication**: Clerk
+- **Styling**: TailwindCSS
+- **UI Components**:
+  - Radix UI
+  - Shadcn/ui
+  - Lucide React
+- **Animations**: Motion & tw-animate-css
+- **Markdown**: React Markdown with Remark GFM
+
+## Prerequisites
+
+- Node.js (LTS version recommended)
+- pnpm (package manager)
+- Clerk account for authentication
+- Neon database (PostgreSQL)
+- Configured environment variables
+
+## Database Configuration
+
+1. Create an account on [Neon](https://neon.tech)
+2. Create a new project
+3. Configure the following environment variables:
+
+```env
+DATABASE_URL="postgres://..."
+DIRECT_URL="postgres://..."
+```
+
+4. Initialize the database:
+
+```bash
+pnpm prisma db push
+pnpm prisma generate
+```
+
+## Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/your-username/super-lig-fr.git
+cd super-lig-fr
+```
+
+2. Install dependencies:
+
+```bash
+pnpm install
+```
+
+3. Set up environment variables:
+
+```bash
+cp .env.example .env
+```
+
+Fill in the `.env` file with your own values.
 
 ## Getting Started
 
-First, run the development server:
+### Development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The application will be available at `http://localhost:3000`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+pnpm build
+pnpm start
+```
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+super-lig-fr/
+├── src/
+│   ├── app/                # Next.js routes and pages
+│   │   └── (authed)/      # Protected routes
+│   ├── components/        # UI components
+│   ├── hooks/            # Custom React hooks
+│   └── lib/              # Utilities and services
+├── prisma/              # Database schema
+└── public/             # Static files
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Available Scripts
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `pnpm dev`: Start development server
+- `pnpm build`: Build for production
+- `pnpm start`: Start production server
+- `pnpm lint`: Run ESLint
+- `pnpm prisma generate`: Generate Prisma types
+- `pnpm prisma db push`: Sync database schema
+- `pnpm prisma studio`: Database administration interface
 
-## Deploy on Vercel
+## Contributing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Contributions are welcome! Please feel free to:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# super-lig-fr
+1. Fork the project
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License. See the `LICENSE` file for details.
+
+## Authors
+
+- Your Name - [@your-twitter](https://twitter.com/your-twitter)
+
+## Acknowledgments
+
+- [Next.js](https://nextjs.org/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [Prisma](https://www.prisma.io/)
+- [Neon](https://neon.tech)
+- [Clerk](https://clerk.com/)
+- And all other open-source tools used in this project
