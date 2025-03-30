@@ -10,8 +10,10 @@ import {
 } from "@/lib/football-api/use-cases/standing";
 
 export const DisplayTopScorersHome = async () => {
-  const topScorers = await getTopScorers();
-  const topAssists = await getTopAssists();
+  const [topScorers, topAssists] = await Promise.all([
+    getTopScorers(),
+    getTopAssists(),
+  ]);
   return (
     <Card className="border-2 shadow-lg border-redsuperlig">
       <HomeCardHeader title="Statistiques Joueurs" />
