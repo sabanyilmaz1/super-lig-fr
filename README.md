@@ -2,6 +2,9 @@
 
 A modern web application dedicated to Turkish football, offering in-depth analysis, live statistics, and a passionate community around the Turkish Super Lig.
 
+<img width="1511" alt="image" src="https://github.com/user-attachments/assets/8fab0f23-f4ed-422a-8fdb-df119941c1e1" />
+
+
 ## Key Features
 
 - Live match scores
