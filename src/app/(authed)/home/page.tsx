@@ -6,6 +6,13 @@ import { DisplayStandingHome } from "@/components/standings/display-standing-hom
 import { DisplayTopScorersHome } from "@/components/standings/display-top-scorers-home";
 import { DisplayTopTeamsHome } from "@/components/standings/display-top-teams-home";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Suspense } from "react";
+import {
+  BlogHomeSkeleton,
+  FixtureHomeSkeleton,
+  StandingHomeSkeleton,
+  StandingHomeStatsSkeleton,
+} from "./_skeleton";
 
 export default async function HomePage() {
   return (
@@ -21,20 +28,20 @@ export default async function HomePage() {
             </TabsList>
             <TabsContent value="recent">
               <div className="space-y-4 ">
-                <DisplayArticlesHome />
+                <DisplayArticlesHomeWithSuspense />
                 <VideoHome />
               </div>
             </TabsContent>
             <TabsContent value="results">
               <div className="space-y-4 ">
-                <DisplayFixtureHome />
-                <DisplayStandingHome />
+                <DisplayFixtureHomeWithSuspense />
+                <DisplayStandingHomeWithSuspense />
               </div>
             </TabsContent>
             <TabsContent value="stat">
               <div className="space-y-4 ">
-                <DisplayTopScorersHome />
-                <DisplayTopTeamsHome />
+                <DisplayTopScorersHomeWithSuspense />
+                <DisplayTopTeamsHomeWithSuspense />
               </div>
             </TabsContent>
           </Tabs>
@@ -42,14 +49,14 @@ export default async function HomePage() {
         {/* Desktop Tablet */}
         <div className="flex-col hidden mx-auto md:container md:pb-8 md:p-0 md:flex md:justify-between md:gap-4 md:flex-row md:pt-12">
           <div className="md:w-[30%] space-y-4">
-            <DisplayFixtureHome />
-            <DisplayStandingHome />
+            <DisplayFixtureHomeWithSuspense />
+            <DisplayStandingHomeWithSuspense />
             <TwitterCta />
           </div>
           <div className="md:w-[70%] space-y-4">
-            <DisplayArticlesHome />
-            <DisplayTopScorersHome />
-            <DisplayTopTeamsHome />
+            <DisplayArticlesHomeWithSuspense />
+            <DisplayTopScorersHomeWithSuspense />
+            <DisplayTopTeamsHomeWithSuspense />
             <VideoHome />
           </div>
         </div>
@@ -57,3 +64,43 @@ export default async function HomePage() {
     </div>
   );
 }
+
+const DisplayTopScorersHomeWithSuspense = () => {
+  return (
+    <Suspense fallback={<StandingHomeStatsSkeleton />}>
+      <DisplayTopScorersHome />
+    </Suspense>
+  );
+};
+
+const DisplayFixtureHomeWithSuspense = () => {
+  return (
+    <Suspense fallback={<FixtureHomeSkeleton />}>
+      <DisplayFixtureHome />
+    </Suspense>
+  );
+};
+
+const DisplayStandingHomeWithSuspense = () => {
+  return (
+    <Suspense fallback={<StandingHomeSkeleton />}>
+      <DisplayStandingHome />
+    </Suspense>
+  );
+};
+
+const DisplayTopTeamsHomeWithSuspense = () => {
+  return (
+    <Suspense fallback={<StandingHomeStatsSkeleton />}>
+      <DisplayTopTeamsHome />
+    </Suspense>
+  );
+};
+
+const DisplayArticlesHomeWithSuspense = () => {
+  return (
+    <Suspense fallback={<BlogHomeSkeleton />}>
+      <DisplayArticlesHome />
+    </Suspense>
+  );
+};
