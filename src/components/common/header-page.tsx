@@ -30,3 +30,18 @@ export const PageHeader = ({
     </div>
   );
 };
+
+export const PageSlugHeader = ({ title }: { title: string }) => {
+  return (
+    <div className="flex flex-col justify-center h-12 gap-3 px-8 text-white bg-gradient-to-r from-red-500 to-red-700 md:h-20 md:items-center md:px-0 ">
+      <motion.h1
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="text-2xl font-semibold md:text-3xl"
+      >
+        {title}
+      </motion.h1>
+    </div>
+  );
+};

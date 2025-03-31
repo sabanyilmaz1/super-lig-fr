@@ -7,12 +7,13 @@ import {
 import { HomeCardHeader } from "@/components/common/home-card-header";
 import { ScoreOrHour } from "@/components/fixture/score-or-hour";
 import { getLastFixtures } from "@/lib/football-api/use-cases/fixture";
+import Link from "next/link";
 
 export const DisplayFixtureHome = async () => {
   const data = await getLastFixtures();
 
   return (
-    <Card className="border-2 shadow-lg min-h-96 border-redsuperlig">
+    <Card className="border-2 shadow-lg min-h-96 border-redsuperlig rounded-t-none  md:rounded-t-lg">
       <HomeCardHeader title={`Journée ${data.round}`} />
       <CardContent className="p-0 mt-4">
         {data.groupedFixtures.map((fixtures) => {
@@ -31,7 +32,12 @@ export const DisplayFixtureHome = async () => {
                       participants={fixture.participants}
                       isHome={true}
                     />
-                    <ScoreOrHour fixture={fixture} />
+                    <Link
+                      scroll={false}
+                      href={`/fixture/${fixture.id}?previous=home`}
+                    >
+                      <ScoreOrHour fixture={fixture} />
+                    </Link>
                     <FixtureDisplayParticipants
                       participants={fixture.participants}
                       isHome={false}

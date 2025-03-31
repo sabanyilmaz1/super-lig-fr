@@ -56,9 +56,14 @@ export const DisplayFixture = ({
               (item) => item.meta.location === "away"
             );
             return (
-              <Link key={fixture.id} href={`/fixture/${fixture.id}`}>
+              <Link
+                key={fixture.id}
+                scroll={false}
+                href={`/fixture/${fixture.id}?previous=fixture`}
+              >
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
+                  id={fixture.id.toString()}
+                  initial={{ opacity: 0, y: 1 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3 }}
                   className={`
