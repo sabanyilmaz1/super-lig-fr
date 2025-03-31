@@ -26,7 +26,7 @@ const navbarItems = [
     id: 2,
     name: "CALENDRIER",
     link: "/fixture",
-    active: false,
+    active: true,
   },
   {
     id: 3,
