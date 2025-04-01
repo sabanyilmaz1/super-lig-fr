@@ -4,7 +4,7 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: "*",
-      allow: ["/"],
+      allow: "/",
       disallow: ["/api/", "/admin/", "/_next/", "/_vercel/", "/private/"],
     },
     sitemap: "https://www.super-lig-france.fr/sitemap.xml",
