@@ -23,6 +23,7 @@ export default async function FixturePage({
     <div className="min-h-screen">
       <PageSlugHeader
         title={`${fixture?.participants[0].name} - ${fixture?.participants[1].name}`}
+        subtitle="Preview"
       />
       <div className="container mx-auto p-4">
         {/* Back button */}
