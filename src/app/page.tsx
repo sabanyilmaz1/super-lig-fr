@@ -6,6 +6,7 @@ import { useCallback, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { teams } from "@/lib/football-api/teams";
+import logo from "../../public/logo.png";
 
 export default function Home() {
   return (
@@ -20,11 +21,11 @@ export default function Home() {
         >
           <div className="flex justify-center md:hidden">
             <Image
-              src="/logo.png"
+              src={logo}
               alt="super lig logo"
-              className="w-32"
-              width={128}
-              height={128}
+              title="logo super lig france"
+              placeholder="blur"
+              className="max-w-32 h-auto"
             />
           </div>
           <div className="hidden md:block">
@@ -93,15 +94,11 @@ const Caroussel = () => {
                 className="flex flex-col items-center justify-center flex-none w-1/4 px-2 sm:w-1/5 md:w-1/6 lg:w-1/8"
               >
                 <div className="flex items-center justify-center mb-2 bg-white rounded-full w-18 h-18 sm:w-16 sm:h-16">
-                  {/* <img
-                    src={team.image_path}
-                    alt={team.name}
-                    className="w-12 h-12"
-                  /> */}
                   <Image
                     src={team.image_path}
-                    alt={team.name}
+                    alt={`logo ${team.name}`}
                     className="w-12 h-12"
+                    title={`logo ${team.name}`}
                     width={48}
                     height={48}
                   />
@@ -129,6 +126,6 @@ const Feature = ({
     <div className="p-3 mb-3 bg-black rounded-full">
       <Icon className="w-6 h-6 text-white" />
     </div>
-    <h3 className="text-lg font-semibold text-white">{title}</h3>
+    <h2 className="text-lg font-semibold text-white">{title}</h2>
   </div>
 );
