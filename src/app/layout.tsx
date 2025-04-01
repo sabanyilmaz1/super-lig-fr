@@ -72,7 +72,7 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en">
+      <html lang="fr">
         <body className={`${montserrat.variable}`}>{children}</body>
       </html>
     </ClerkProvider>
