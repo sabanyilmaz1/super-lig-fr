@@ -13,7 +13,7 @@ const getAllRounds = async () => {
 const getFixturesByDateRange = async (startDate: string, endDate: string) => {
   const fixtures = await getDataFromFootballApi(
     `fixtures/between/${startDate}/${endDate}`,
-    "participants;scores;state"
+    "participants;scores;state&timezone=Europe/Paris"
   );
   return fixtures as Fixture[];
 };
@@ -67,7 +67,7 @@ export const getLastFixtures = async () => {
 export const getFixtureById = async (fixtureId: string) => {
   const fixture = await getDataFromFootballApi(
     `fixtures/${fixtureId}`,
-    "formations;lineups.player;sidelined.sideline.player;metadata;sidelined.sideline.team;participants"
+    "formations;lineups.player;sidelined.sideline.player;metadata;sidelined.sideline.team;participants&timezone=Europe/Paris"
   );
   return fixture as FixturePreview;
 };

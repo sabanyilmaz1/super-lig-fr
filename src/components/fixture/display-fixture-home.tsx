@@ -32,10 +32,7 @@ export const DisplayFixtureHome = async () => {
                       participants={fixture.participants}
                       isHome={true}
                     />
-                    <Link
-                      scroll={false}
-                      href={`/fixture/${fixture.id}?previous=home`}
-                    >
+                    <Link scroll={false} href={`/fixture/${fixture.id}?p=home`}>
                       <ScoreOrHour fixture={fixture} />
                     </Link>
                     <FixtureDisplayParticipants

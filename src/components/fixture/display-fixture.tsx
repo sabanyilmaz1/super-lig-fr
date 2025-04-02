@@ -58,8 +58,8 @@ export const DisplayFixture = ({
             return (
               <Link
                 key={fixture.id}
-                scroll={false}
-                href={`/fixture/${fixture.id}?previous=fixture`}
+                scroll={true}
+                href={`/fixture/${fixture.id}?p=fixture`}
               >
                 <motion.div
                   id={fixture.id.toString()}

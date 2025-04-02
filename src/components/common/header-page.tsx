@@ -31,15 +31,9 @@ export const PageHeader = ({
   );
 };
 
-export const PageSlugHeader = ({
-  title,
-  subtitle,
-}: {
-  title: string;
-  subtitle: string;
-}) => {
+export const PageSlugHeader = ({ title }: { title: string }) => {
   return (
-    <div className="flex flex-col justify-center h-14 gap-2  px-8 text-white bg-gradient-to-r from-red-500 to-red-700 md:h-24 md:items-center md:px-0 ">
+    <div className="flex flex-col justify-center h-10 gap-2  px-8 text-white bg-gradient-to-r from-red-500 to-red-700 md:h-20 md:items-center md:px-0 ">
       <motion.h1
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -48,14 +42,6 @@ export const PageSlugHeader = ({
       >
         {title}
       </motion.h1>
-      <motion.h2
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="text-sm text-center font-medium md:text-xl"
-      >
-        {subtitle}
-      </motion.h2>
     </div>
   );
 };
