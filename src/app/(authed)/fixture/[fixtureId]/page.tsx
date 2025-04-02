@@ -1,4 +1,5 @@
 import { PageSlugHeader } from "@/components/common/header-page";
+import { MatchInfoPreview } from "@/components/fixture/preview/match-info-preview";
 import { ScoreBoardPreview } from "@/components/fixture/preview/score-board-preview";
 import { getFixtureById } from "@/lib/football-api/use-cases/fixture";
 import { ArrowLeftIcon } from "lucide-react";
@@ -20,6 +21,8 @@ export default async function FixturePage({
     notFound();
   }
 
+  console.log(fixture);
+
   return (
     <div id={fixtureId} className="min-h-screen">
       <PageSlugHeader title={`Preview`} />
@@ -35,6 +38,7 @@ export default async function FixturePage({
           </Link>
         </div>
         <div className="mt-2">
+          <MatchInfoPreview fixture={fixture} />
           <ScoreBoardPreview fixture={fixture} />
         </div>
       </div>

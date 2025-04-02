@@ -67,7 +67,7 @@ export const getLastFixtures = async () => {
 export const getFixtureById = async (fixtureId: string) => {
   const fixture = await getDataFromFootballApi(
     `fixtures/${fixtureId}`,
-    "formations;lineups.player;sidelined.sideline.player;metadata;sidelined.sideline.team;participants&timezone=Europe/Paris"
+    "formations;lineups.player;sidelined.sideline.player;metadata;sidelined.sideline.team;participants;venue;state&timezone=Europe/Paris"
   );
   return fixture as FixturePreview;
 };
