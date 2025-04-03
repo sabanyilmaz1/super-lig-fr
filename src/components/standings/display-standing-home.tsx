@@ -130,3 +130,77 @@ export const DisplayStandingHome = async () => {
     </Card>
   );
 };
+
+export const DisplayStandingFixture = async ({
+  teamsIds,
+}: {
+  teamsIds?: number[];
+}) => {
+  const standing = await getStanding();
+  const renderCellContent = (
+    column: ColumnConfig,
+    team: Standing
+  ): ReactNode => {
+    const value = column.accessor(team);
+
+    if (column.key === "club" && value && typeof value === "object") {
+      return (
+        <div className="flex items-center gap-2">
+          <Image
+            src={value.image || ""}
+            alt={value.name || ""}
+            width={20}
+            height={20}
+            className="w-5 h-5 object-contain"
+            style={{ width: "auto", height: "auto" }}
+          />
+          <p className="font-bold text-redsuperlig">{value.name || ""}</p>
+        </div>
+      );
+    }
+
+    return String(value);
+  };
+
+  return (
+    <Card className="border-2 shadow-lg min-h-96 border-redsuperlig">
+      <CardContent className="p-0">
+        <Table className="w-full">
+          <TableHeader className=" text-[10px]">
+            <TableRow>
+              {tabConfig.map((column) => (
+                <TableHead
+                  key={column.key}
+                  className={`${column.className} h-7 md:h-12`}
+                >
+                  {column.header}
+                </TableHead>
+              ))}
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {standing &&
+              standing.map((team) => (
+                <TableRow key={team.participant.id}>
+                  {tabConfig.map((column) => (
+                    <TableCell
+                      key={column.key}
+                      className={`${
+                        column.className
+                      } text-xs md:text-base p-2 ${
+                        teamsIds?.includes(team.participant.id)
+                          ? "bg-redsuperlig/20"
+                          : ""
+                      }`}
+                    >
+                      {renderCellContent(column, team)}
+                    </TableCell>
+                  ))}
+                </TableRow>
+              ))}
+          </TableBody>
+        </Table>
+      </CardContent>
+    </Card>
+  );
+};

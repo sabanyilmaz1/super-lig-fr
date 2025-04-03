@@ -1,6 +1,6 @@
 import { FOOTBALL_SPORTMONK_API_CONSTANTS } from "../constants";
 import { getDataFromFootballApi } from "../get-data";
-import { Fixture, Round } from "../types/fixture";
+import { Fixture, FixturePreview, Round } from "../types/fixture";
 
 const getAllRounds = async () => {
   const rounds = await getDataFromFootballApi(
@@ -13,7 +13,7 @@ const getAllRounds = async () => {
 const getFixturesByDateRange = async (startDate: string, endDate: string) => {
   const fixtures = await getDataFromFootballApi(
     `fixtures/between/${startDate}/${endDate}`,
-    "participants;scores;state"
+    "participants;scores;state&timezone=Europe/Paris"
   );
   return fixtures as Fixture[];
 };
@@ -62,4 +62,12 @@ export const getLastFixtures = async () => {
       round: "",
     };
   }
+};
+
+export const getFixtureById = async (fixtureId: string) => {
+  const fixture = await getDataFromFootballApi(
+    `fixtures/${fixtureId}`,
+    "formations;lineups.player;sidelined.sideline.player;metadata;sidelined.sideline.team;participants;venue;state&timezone=Europe/Paris"
+  );
+  return fixture as FixturePreview;
 };

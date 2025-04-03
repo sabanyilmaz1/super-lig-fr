@@ -1,6 +1,5 @@
 import { LIVE_STATE, LIVE_STATE_NAME } from "@/lib/football-api/constants";
 import { Fixture } from "@/lib/football-api/types/fixture";
-import { formatHourAndAddOne } from "@/lib/utils";
 
 export const ScoreOrHour = ({ fixture }: { fixture: Fixture }) => {
   const isLive = LIVE_STATE.includes(fixture.state?.developer_name ?? "");
@@ -12,7 +11,7 @@ export const ScoreOrHour = ({ fixture }: { fixture: Fixture }) => {
         {!matchNotStarted ? (
           <Score fixture={fixture} />
         ) : (
-          formatHourAndAddOne(fixture.starting_at_timestamp)
+          fixture.starting_at?.split(" ")[1].split(":").slice(0, 2).join(":")
         )}
       </div>
       {isLive && (

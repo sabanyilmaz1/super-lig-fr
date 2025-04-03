@@ -84,6 +84,7 @@ export interface FixturePreview {
   sidelined: Sidelined[] | null;
   formations: Formation[] | null;
   participants: ParticipantWithMeta[] | null;
+  venue: Venue | null;
 }
 
 export interface DetailedPosition {
@@ -190,6 +191,22 @@ export interface Formation {
   id: number;
   location: "home" | "away";
   participant_id: number;
+}
+
+export interface Venue {
+  id: number;
+  country_id: number;
+  city_id: number;
+  name: string;
+  address: string;
+  zipcode: string;
+  latitude: number;
+  longitude: number;
+  capacity: number;
+  image_path: string;
+  city_name: string;
+  surface: string;
+  national_team: boolean;
 }
 
 export const LINEUP_TYPE = {
