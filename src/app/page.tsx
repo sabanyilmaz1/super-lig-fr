@@ -23,6 +23,7 @@ export default function Home() {
             <Image
               src={logo}
               alt="super lig logo"
+              title="logo super lig france"
               placeholder="blur"
               className="max-w-32 h-auto"
             />
@@ -95,8 +96,9 @@ const Caroussel = () => {
                 <div className="flex items-center justify-center mb-2 bg-white rounded-full w-18 h-18 sm:w-16 sm:h-16">
                   <Image
                     src={team.image_path}
-                    alt={team.name}
+                    alt={`logo ${team.name}`}
                     className="w-12 h-12"
+                    title={`logo ${team.name}`}
                     width={48}
                     height={48}
                   />
@@ -124,6 +126,6 @@ const Feature = ({
     <div className="p-3 mb-3 bg-black rounded-full">
       <Icon className="w-6 h-6 text-white" />
     </div>
-    <h3 className="text-lg font-semibold text-white">{title}</h3>
+    <h2 className="text-lg font-semibold text-white">{title}</h2>
   </div>
 );
