@@ -15,7 +15,7 @@ export const DisplayTopScorersHome = async () => {
     getTopAssists(),
   ]);
   return (
-    <Card className="border-2 shadow-lg border-redsuperlig">
+    <Card className="border-2 shadow-lg border-redsuperlig rounded-t-none  md:rounded-t-lg">
       <HomeCardHeader title="Statistiques Joueurs" />
       <CardContent className="p-6">
         <div className="grid grid-cols-1 gap-6 pt-4 md:grid-cols-2">

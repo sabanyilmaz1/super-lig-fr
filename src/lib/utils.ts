@@ -71,3 +71,29 @@ export const formatTimestampToTime = (timestamp: string | number): string => {
     minute: "2-digit",
   });
 };
+
+export function formatDateFrShort(dateStr: string) {
+  const jours = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"];
+  const mois = [
+    "Jan",
+    "Fév",
+    "Mar",
+    "Avr",
+    "Mai",
+    "Juin",
+    "Juil",
+    "Aoû",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Déc",
+  ];
+
+  const date = new Date(dateStr);
+  const jourSemaine = jours[date.getDay()];
+  const jourMois = date.getDate();
+  const moisNom = mois[date.getMonth()];
+  const annee = date.getFullYear();
+
+  return `${jourSemaine} ${jourMois} ${moisNom} ${annee}`;
+}
