@@ -1,9 +1,12 @@
+"use client";
+import { useMediaQuery } from "@/hooks/use-media-query";
 import { FixturePreview } from "@/lib/football-api/types/fixture";
 import { formatDateFrShort } from "@/lib/utils";
 import { Calendar1Icon, ClockIcon, HouseIcon } from "lucide-react";
 import React from "react";
 
 export const MatchInfoPreview = ({ fixture }: { fixture: FixturePreview }) => {
+  const isMobile = useMediaQuery("(max-width: 768px)");
   const hour = fixture.starting_at
     .split(" ")[1]
     .split(":")
@@ -23,12 +26,14 @@ export const MatchInfoPreview = ({ fixture }: { fixture: FixturePreview }) => {
         <ClockIcon className="w-4 h-4" />
         <span>Coup d&apos;envoi: {hour}</span>
       </div>
-      <div className="flex items-center gap-2">
-        <HouseIcon className="w-4 h-4" />
-        <span>
-          {fixture.venue?.name}, {fixture.venue?.city_name}
-        </span>
-      </div>
+      {!isMobile && (
+        <div className="flex items-center gap-2">
+          <HouseIcon className="w-4 h-4" />
+          <span>
+            {fixture.venue?.name}, {fixture.venue?.city_name}
+          </span>
+        </div>
+      )}
     </div>
   );
 };
