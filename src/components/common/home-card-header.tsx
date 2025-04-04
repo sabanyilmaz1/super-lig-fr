@@ -18,3 +18,21 @@ export const HomeCardHeader = ({ title }: { title: string }) => {
     </CardHeader>
   );
 };
+
+export const CardHeaderOther = ({ title }: { title: string }) => {
+  return (
+    <CardHeader className="hidden md:flex rounded-t-none  md:rounded-t-lg items-center justify-center px-0 py-0 text-center text-white bg-gradient-to-r from-red-500 to-red-700 ">
+      <CardTitle className="flex items-center text-xl w-full gap-2 ">
+        <Image
+          src="/logo.png"
+          className=" size-10 md:size-14"
+          alt="logo super ligue france"
+          width={48}
+          height={48}
+        />
+        <p>{title}</p>
+        <div></div>
+      </CardTitle>
+    </CardHeader>
+  );
+};

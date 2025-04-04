@@ -1,5 +1,6 @@
 import { PageSlugHeader } from "@/components/common/header-page";
 import { InjuriesPreview } from "@/components/fixture/preview/injuries-preview";
+import { LineupPreview } from "@/components/fixture/preview/lineup-preview";
 import { MatchInfoPreview } from "@/components/fixture/preview/match-info-preview";
 import { ScoreBoardPreview } from "@/components/fixture/preview/score-board-preview";
 import { DisplayStandingFixture } from "@/components/standings/display-standing-home";
@@ -44,11 +45,8 @@ export default async function FixturePage({
           <MatchInfoPreview fixture={fixture} />
           <ScoreBoardPreview fixture={fixture} />
           {/* Onze ou dernier onze */}
-          {/* Blessures */}
-
-          <div className="flex gap-4">
-            {/* Classement */}
-            <div className="md:max-w-md w-full">
+          <div className="flex justify-center gap-4">
+            <div className="md:max-w-sm w-full">
               <DisplayStandingFixture
                 teamsIds={[
                   fixture.participants[0].id,
@@ -56,8 +54,10 @@ export default async function FixturePage({
                 ]}
               />
             </div>
-            {/* Absences */}
-            <InjuriesPreview />
+            <div className="flex flex-col gap-4 w-full md:max-w-3xl">
+              <InjuriesPreview fixture={fixture} />
+              <LineupPreview />
+            </div>
           </div>
         </div>
         {/* Mobile */}
@@ -67,7 +67,7 @@ export default async function FixturePage({
           <Tabs defaultValue="standing" className="mt-4">
             <TabsList className="mb-2">
               <TabsTrigger value="standing">Classement</TabsTrigger>
-              <TabsTrigger value="injuries">Blessures</TabsTrigger>
+              <TabsTrigger value="injuries">Absences</TabsTrigger>
               <TabsTrigger value="lineup">Composition</TabsTrigger>
             </TabsList>
             <TabsContent value="standing">
@@ -78,7 +78,9 @@ export default async function FixturePage({
                 ]}
               />
             </TabsContent>
-            <TabsContent value="injuries"></TabsContent>
+            <TabsContent value="injuries">
+              <InjuriesPreview fixture={fixture} />
+            </TabsContent>
             <TabsContent value="lineup"></TabsContent>
           </Tabs>
         </div>

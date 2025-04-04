@@ -9,7 +9,10 @@ import {
   TableHead,
 } from "@/components/ui/table";
 
-import { HomeCardHeader } from "@/components/common/home-card-header";
+import {
+  CardHeaderOther,
+  HomeCardHeader,
+} from "@/components/common/home-card-header";
 import {
   Standing,
   StandingDetail,
@@ -100,7 +103,7 @@ export const DisplayStandingHome = async () => {
   };
 
   return (
-    <Card className="border-2 shadow-lg min-h-96 border-redsuperlig">
+    <Card className="border-2 shadow-lg min-h-96 border-redsuperlig rounded-xl">
       <HomeCardHeader title="Classement" />
       <CardContent className="p-0">
         <Table className="w-full">
@@ -149,29 +152,31 @@ export const DisplayStandingFixture = async ({
           <Image
             src={value.image || ""}
             alt={value.name || ""}
-            width={20}
-            height={20}
+            width={12}
+            height={12}
             className="w-5 h-5 object-contain"
             style={{ width: "auto", height: "auto" }}
           />
-          <p className="font-bold text-redsuperlig">{value.name || ""}</p>
+          <p className="font-semibold text-redsuperlig text-sm">
+            {value.name || ""}
+          </p>
         </div>
       );
     }
-
     return String(value);
   };
 
   return (
-    <Card className="border-2 shadow-lg min-h-96 border-redsuperlig">
+    <Card className="border-2 shadow-lg min-h-96 border-redsuperlig rounded-xl">
+      <CardHeaderOther title="Classement" />
       <CardContent className="p-0">
         <Table className="w-full">
-          <TableHeader className=" text-[10px]">
+          <TableHeader className=" text-[10px] ">
             <TableRow>
               {tabConfig.map((column) => (
                 <TableHead
                   key={column.key}
-                  className={`${column.className} h-7 md:h-12`}
+                  className={`${column.className} h-7 md:h-10`}
                 >
                   {column.header}
                 </TableHead>
@@ -185,9 +190,7 @@ export const DisplayStandingFixture = async ({
                   {tabConfig.map((column) => (
                     <TableCell
                       key={column.key}
-                      className={`${
-                        column.className
-                      } text-xs md:text-base p-2 ${
+                      className={`${column.className} text-xs md:text-sm p-2 ${
                         teamsIds?.includes(team.participant.id)
                           ? "bg-redsuperlig/20"
                           : ""
