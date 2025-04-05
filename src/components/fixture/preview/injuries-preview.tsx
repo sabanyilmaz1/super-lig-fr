@@ -59,8 +59,8 @@ export const InjuriesPreview = ({ fixture }: { fixture: FixturePreview }) => {
       <CardHeaderOther title="Absences" />
       <CardContent className="p-2 flex flex-col">
         <legend className=" text-[10px] md:text-xs italic font-medium md:text-end bg-gray-100 p-2 rounded-lg w-fit my-2 self-end">
-          * Suspension peut etre aussi pour les joueurs hors de la liste des
-          joueurs enregistrés pour la saison.
+          * Suspension peut etre aussi pour les joueurs non-enregistrés pour la
+          saison.
         </legend>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -130,34 +130,36 @@ const ListSidelined = ({
       </div>
       <hr className="w-full h-1 bg-gray-200" />
       <ScrollArea className="md:h-[200px]">
-        {sidelined.map((item: Sidelined) => (
-          <div key={item.id} className="flex items-center gap-2">
-            <Image
-              src={item.sideline.player.image_path}
-              alt={item.sideline.player.display_name}
-              width={36}
-              height={36}
-              className="rounded-full"
-            />
-            <div>
-              <p className="text-sm md:text-base">
-                {item.sideline.player.display_name}
-              </p>
-              <span
-                className={cn(
-                  "px-2 py-1 mr-2 text-[10px] md:text-xs  rounded",
-                  item.sideline.category === ("injury" as string)
-                    ? "bg-red-100 text-red-800"
-                    : "bg-blue-100 text-blue-800"
-                )}
-              >
-                {item.sideline.category === ("injury" as string)
-                  ? "Blessure"
-                  : "Suspension*"}
-              </span>
+        <div className="flex flex-col gap-3">
+          {sidelined.map((item: Sidelined) => (
+            <div key={item.id} className="flex items-center gap-2">
+              <Image
+                src={item.sideline.player.image_path}
+                alt={item.sideline.player.display_name}
+                width={36}
+                height={36}
+                className="rounded-full"
+              />
+              <div>
+                <p className="text-sm md:text-base">
+                  {item.sideline.player.display_name}
+                </p>
+                <span
+                  className={cn(
+                    "px-2 py-1 mr-2 text-[10px] md:text-xs  rounded",
+                    item.sideline.category === ("injury" as string)
+                      ? "bg-red-100 text-red-800"
+                      : "bg-blue-100 text-blue-800"
+                  )}
+                >
+                  {item.sideline.category === ("injury" as string)
+                    ? "Blessure"
+                    : "Suspension*"}
+                </span>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
         <ScrollBar orientation="vertical" />
       </ScrollArea>
     </div>

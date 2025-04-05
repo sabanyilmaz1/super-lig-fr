@@ -24,7 +24,7 @@ export default async function FixturePage({
     notFound();
   }
 
-  console.log(fixture);
+  // console.log(fixture);
 
   return (
     <div id={fixtureId} className="min-h-screen">
@@ -55,8 +55,8 @@ export default async function FixturePage({
               />
             </div>
             <div className="flex flex-col gap-4 w-full md:max-w-3xl">
+              <LineupPreview fixture={fixture} />
               <InjuriesPreview fixture={fixture} />
-              <LineupPreview />
             </div>
           </div>
         </div>
@@ -67,8 +67,8 @@ export default async function FixturePage({
           <Tabs defaultValue="standing" className="mt-4">
             <TabsList className="mb-2">
               <TabsTrigger value="standing">Classement</TabsTrigger>
-              <TabsTrigger value="injuries">Absences</TabsTrigger>
               <TabsTrigger value="lineup">Composition</TabsTrigger>
+              <TabsTrigger value="injuries">Absences</TabsTrigger>
             </TabsList>
             <TabsContent value="standing">
               <DisplayStandingFixture
@@ -81,7 +81,9 @@ export default async function FixturePage({
             <TabsContent value="injuries">
               <InjuriesPreview fixture={fixture} />
             </TabsContent>
-            <TabsContent value="lineup"></TabsContent>
+            <TabsContent value="lineup">
+              <LineupPreview fixture={fixture} />
+            </TabsContent>
           </Tabs>
         </div>
       </div>

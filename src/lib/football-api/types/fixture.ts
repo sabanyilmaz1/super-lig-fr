@@ -85,6 +85,7 @@ export interface FixturePreview {
   formations: Formation[] | null;
   participants: ParticipantWithMeta[] | null;
   venue: Venue | null;
+  metadata: Metadata[] | null;
 }
 
 export interface DetailedPosition {
@@ -207,6 +208,22 @@ export interface Venue {
   city_name: string;
   surface: string;
   national_team: boolean;
+}
+
+export interface Metadata {
+  id: number;
+  metadatable_id: number;
+  type_id: number;
+  value_type: string;
+  values: {
+    neutral?: boolean;
+    kickOff?: string;
+    home?: string;
+    away?: string;
+    confirmed?: boolean;
+    predictable?: boolean;
+    extra_time?: boolean;
+  };
 }
 
 export const LINEUP_TYPE = {
