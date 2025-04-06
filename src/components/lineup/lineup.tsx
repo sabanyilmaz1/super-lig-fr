@@ -4,6 +4,7 @@ import { getFormation } from "./get-formation";
 import { Field } from "./field";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 import { Player } from "./player";
+import { formatPlayerName } from "./format-name";
 
 interface LineupProps {
   lineup: LineupType[] | null;
@@ -60,20 +61,15 @@ export const Lineup = ({ lineup, homeTeam, awayTeam }: LineupProps) => {
             />
             {homeFormation.map((formation, row) => {
               return (
-                <div className="flex md:flex-col-reverse gap-4" key={row}>
+                <div
+                  className="flex md:flex-col-reverse md:justify-evenly md:gap-2"
+                  key={row}
+                >
                   {Array.from({ length: formation }).map((_, colunm) => {
                     const player = homeLineup.find(
                       (p) => p.formation_field === `${row + 2}:${colunm + 1}`
                     );
-                    const name =
-                      player?.player?.display_name
-                        .split(" ")[0][0]
-                        .toUpperCase() +
-                      ". " +
-                      player?.player?.display_name
-                        .split(" ")
-                        .slice(1)
-                        .join(" ");
+                    const name = formatPlayerName(player?.player?.display_name);
                     return (
                       <div key={colunm}>
                         <Player
@@ -100,20 +96,15 @@ export const Lineup = ({ lineup, homeTeam, awayTeam }: LineupProps) => {
             />
             {awayFormation.map((formation, row) => {
               return (
-                <div className="flex md:flex-col gap-4" key={row}>
+                <div
+                  className="flex md:flex-col md:justify-evenly md:gap-2"
+                  key={row}
+                >
                   {Array.from({ length: formation }).map((_, colunm) => {
                     const player = awayLineup.find(
                       (p) => p.formation_field === `${row + 2}:${colunm + 1}`
                     );
-                    const name =
-                      player?.player?.display_name
-                        .split(" ")[0][0]
-                        .toUpperCase() +
-                      ". " +
-                      player?.player?.display_name
-                        .split(" ")
-                        .slice(1)
-                        .join(" ");
+                    const name = formatPlayerName(player?.player?.display_name);
                     return (
                       <div key={colunm}>
                         <Player

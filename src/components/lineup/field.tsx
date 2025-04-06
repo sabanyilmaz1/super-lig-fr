@@ -12,7 +12,7 @@ const Field = ({ children }: { children: React.ReactNode }) => {
 
 const FieldVertical = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="w-full mx-auto md:px-0 md:m-0 md:max-w-sm">
+    <div className="w-full mx-auto">
       <div className="overflow-hidden rounded-lg shadow-xl bg-gradient-to-b from-green-600 to-green-800">
         <div className="relative w-full h-[450px]">
           <div className="absolute inset-0 flex flex-col">

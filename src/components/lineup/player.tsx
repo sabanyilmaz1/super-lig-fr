@@ -14,7 +14,7 @@ export const Player = ({
   isHome: boolean;
 }) => {
   return (
-    <div className="flex flex-col  w-fit">
+    <div className="flex flex-col items-center md:items-start w-[60px] md:w-fit">
       <div
         className={cn(
           "relative flex items-center justify-center font-bold text-white rounded-full shadow-md w-9 h-9 md:w-10 md:h-10",
@@ -25,7 +25,7 @@ export const Player = ({
           <Image
             src={imagePath}
             alt={name}
-            className="rounded-full"
+            className="rounded-full w-7 md:w-auto"
             width={64}
             height={64}
           />
@@ -42,7 +42,9 @@ export const Player = ({
         </div>
       </div>
       <div className="mt-1 text-center">
-        <p className="text-[10px] font-semibold text-white">{name}</p>
+        <p className=" text-[8px] md:text-[10px] max-w-20 md:max-w-none font-semibold text-white">
+          {name}
+        </p>
       </div>
     </div>
   );
