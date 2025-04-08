@@ -10,6 +10,28 @@ import { ArrowLeftIcon } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ fixtureId: string }>;
+}) {
+  const { fixtureId } = await params;
+  const fixture = await getFixtureById(fixtureId);
+  if (!fixture || !fixture.participants) {
+    notFound();
+  }
+  const homeName = fixture.participants.find(
+    (participant) => participant.meta.location === "home"
+  )?.name;
+  const awayName = fixture.participants.find(
+    (participant) => participant.meta.location === "away"
+  )?.name;
+  return {
+    title: `${homeName} - ${awayName}`,
+    description: `Avant match, retrouvez les dernières informations sur le match ${homeName} - ${awayName}`,
+  };
+}
+
 export default async function FixturePage({
   params,
   searchParams,
