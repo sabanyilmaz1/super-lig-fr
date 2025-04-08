@@ -97,7 +97,7 @@ export const Lineup = ({ lineup, homeTeam, awayTeam }: LineupProps) => {
             {awayFormation.map((formation, row) => {
               return (
                 <div
-                  className="flex md:flex-col md:justify-evenly md:gap-2"
+                  className="flex md:flex-col md:justify-evenly items-baseline md:gap-2"
                   key={row}
                 >
                   {Array.from({ length: formation }).map((_, colunm) => {
