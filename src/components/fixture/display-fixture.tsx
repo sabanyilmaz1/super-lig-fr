@@ -25,7 +25,11 @@ export const DisplayFixture = ({
 
   const [selectedDay, setSelectedDay] = useState(() => {
     const today = new Date().getDate();
-    const isMatchDay = dates.find((date) => new Date(date).getDate() === today);
+    const isMatchDay = dates.find((item) => {
+      const dayNumber = parseInt(item.split(" ")[1]);
+      return dayNumber === today;
+    });
+
     if (!isMatchDay) {
       return dates[0];
     }

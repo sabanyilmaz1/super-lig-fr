@@ -4,6 +4,14 @@ import { Fixture } from "@/lib/football-api/types/fixture";
 import { getLastFixtures } from "@/lib/football-api/use-cases/fixture";
 import { Suspense } from "react";
 
+export async function generateMetadata() {
+  const data = await getLastFixtures();
+  return {
+    title: `Super Lig France - ${data.round}ème journée`,
+    description: "Suivez le calendrier en cours de la Süper Lig",
+  };
+}
+
 export default async function FixturePage() {
   const data = await getLastFixtures();
   return (

@@ -9,7 +9,13 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { Metadata } from "next";
 import { Suspense } from "react";
+
+export const metadata: Metadata = {
+  title: "Super Lig France - Classement",
+  description: "Suivez le classement de la Süper Lig",
+};
 
 export default function StandingPage() {
   return (

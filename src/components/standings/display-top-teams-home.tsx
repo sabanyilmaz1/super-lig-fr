@@ -39,7 +39,7 @@ export const DisplayTopTeamsHome = async () => {
   });
 
   return (
-    <Card className="border-2 shadow-lg border-redsuperlig">
+    <Card className="border-2 shadow-lg border-redsuperlig rounded-xl">
       <HomeCardHeader title="Statistiques Équipe" />
       <CardContent className="p-6">
         <div className="grid grid-cols-1 gap-6 pt-4 md:grid-cols-2">

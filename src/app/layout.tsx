@@ -24,6 +24,8 @@ export const metadata: Metadata = {
     "football turc",
     "süper lig",
     "actualité football turc",
+    "süper lig",
+    "foot turquie",
   ],
   openGraph: {
     title: "Super Lig France - L'actualité du championnat turc de football",
@@ -61,7 +63,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "google-site-verification-code", // Vous devrez remplacer ceci par votre code de vérification Google
+    google: "u_16xAONsJtYXt01NKX3NG5Ausr6QOTJNIrjYGmjmHM",
   },
 };
 
