@@ -53,7 +53,7 @@ export const ScoreBoardPreview = ({ fixture }: ScoreBoardPreviewProps) => {
         </div>
 
         {/* Away team */}
-        <div className="flex md:flex-row-reverse items-center md:gap-4 gap-2">
+        <div className="flex  items-center md:gap-4 gap-2">
           <div className="">
             {!isMobile && (
               <div className="md:text-xl md:text-right font-bold">

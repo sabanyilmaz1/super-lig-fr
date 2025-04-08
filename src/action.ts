@@ -10,7 +10,6 @@ export const updateUserFavoriteTeamAction = async (
 ) => {
   const teamId = formData.get("teamId");
   const user = await getUser();
-  console.log(user, teamId);
   if (!user || !teamId || isNaN(Number(teamId))) {
     return {
       pathname: prevState.pathname,

@@ -12,10 +12,8 @@ import Link from "next/link";
 export const DisplayFixtureHome = async () => {
   const data = await getLastFixtures();
 
-  console.log(data.groupedFixtures[0][0]);
-
   return (
-    <Card className="border-2 shadow-lg min-h-96 border-redsuperlig rounded-t-none  md:rounded-t-lg">
+    <Card className="border-2 shadow-lg min-h-96 border-redsuperlig rounded-t-none  md:rounded-t-xl">
       <HomeCardHeader title={`Journée ${data.round}`} />
       <CardContent className="p-0 mt-4">
         {data.groupedFixtures.map((fixtures) => {
