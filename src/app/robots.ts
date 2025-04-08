@@ -15,6 +15,5 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: "https://www.super-lig-france.fr/sitemap.xml",
-    host: "https://www.super-lig-france.fr",
   };
 }
