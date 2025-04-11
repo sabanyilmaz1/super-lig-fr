@@ -1,12 +1,9 @@
+"use client";
 import { CardHeaderOther } from "@/components/common/home-card-header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { ParticipantWithMeta } from "@/lib/football-api/types/base";
-import {
-  FixturePreview,
-  Formation,
-  Sidelined,
-} from "@/lib/football-api/types/fixture";
+import { FixturePreview, Sidelined } from "@/lib/football-api/types/fixture";
 import { cn } from "@/lib/utils";
 import { Heart } from "lucide-react";
 import Image from "next/image";
@@ -34,13 +31,13 @@ export const InjuriesPreview = ({ fixture }: { fixture: FixturePreview }) => {
     );
   }
 
-  const idHome = fixture.formations?.find(
-    (f: Formation) => f.location === "home"
-  )?.participant_id;
+  const idHome = fixture.participants?.find(
+    (p: ParticipantWithMeta) => p.meta.location === "home"
+  )?.id;
 
-  const idAway = fixture.formations?.find(
-    (f: Formation) => f.location === "away"
-  )?.participant_id;
+  const idAway = fixture.participants?.find(
+    (p: ParticipantWithMeta) => p.meta.location === "away"
+  )?.id;
 
   const sidelinedHome = fixture.sidelined.filter(
     (item: Sidelined) => item.participant_id === idHome
@@ -129,7 +126,7 @@ const ListSidelined = ({
         <p className="text-sm md:text-base">{participant?.name}</p>
       </div>
       <hr className="w-full h-1 bg-gray-200" />
-      <ScrollArea className="md:h-[200px]">
+      <ScrollArea className="md:h-[300px]">
         <div className="flex flex-col gap-3">
           {sidelined.map((item: Sidelined) => (
             <div key={item.id} className="flex items-center gap-2">

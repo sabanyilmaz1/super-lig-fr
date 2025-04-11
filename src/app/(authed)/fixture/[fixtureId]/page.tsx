@@ -51,7 +51,7 @@ export default async function FixturePage({
   return (
     <div id={fixtureId} className="min-h-screen">
       <PageSlugHeader title={`Preview`} />
-      <div className="container mx-auto px-4 pt-2">
+      <div className="container mx-auto px-4 pt-2 ">
         {/* Back button */}
         <div>
           <Link
@@ -63,7 +63,7 @@ export default async function FixturePage({
           </Link>
         </div>
         {/* Desktop */}
-        <div className="mt-2 hidden md:block">
+        <div className="mt-2 hidden md:block md:pb-12">
           <MatchInfoPreview fixture={fixture} />
           <ScoreBoardPreview fixture={fixture} />
           {/* Onze ou dernier onze */}
