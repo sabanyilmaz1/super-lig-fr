@@ -35,8 +35,6 @@ export const Lineup = ({ lineup, homeTeam, awayTeam }: LineupProps) => {
   const homeFormation = getFormation(homeLineup).split("-").map(Number);
   const awayFormation = getFormation(awayLineup).split("-").map(Number);
 
-  console.log(homeFormation, awayFormation);
-
   const homeGoalkeeper = homeLineup.find(
     (player) => player.formation_field === "1:1"
   );
@@ -62,7 +60,7 @@ export const Lineup = ({ lineup, homeTeam, awayTeam }: LineupProps) => {
             {homeFormation.map((formation, row) => {
               return (
                 <div
-                  className="flex md:flex-col-reverse md:justify-evenly md:gap-2"
+                  className="flex flex-row-reverse justify-evenly w-full md:flex-col-reverse md:h-full md:gap-2"
                   key={row}
                 >
                   {Array.from({ length: formation }).map((_, colunm) => {
@@ -97,7 +95,7 @@ export const Lineup = ({ lineup, homeTeam, awayTeam }: LineupProps) => {
             {awayFormation.map((formation, row) => {
               return (
                 <div
-                  className="flex md:flex-col md:justify-evenly items-baseline md:gap-2"
+                  className="flex flex-row justify-evenly w-full md:flex-col md:h-full"
                   key={row}
                 >
                   {Array.from({ length: formation }).map((_, colunm) => {

@@ -14,7 +14,7 @@ export const Player = ({
   isHome: boolean;
 }) => {
   return (
-    <div className="flex flex-col items-center md:items-start w-[70px] sm:w-fit">
+    <div className="flex flex-col items-center md:items-start  ">
       <div
         className={cn(
           "relative flex items-center justify-center font-bold text-white rounded-full shadow-md w-9 h-9 md:w-10 md:h-10",
@@ -42,7 +42,7 @@ export const Player = ({
         </div>
       </div>
       <div className="mt-1 text-center">
-        <p className=" text-[8px] sm:text-[10px] max-w-20 md:max-w-none font-semibold text-white">
+        <p className=" text-[10px] min-w-16 max-w-20 md:max-w-none font-semibold text-white">
           {name}
         </p>
       </div>
