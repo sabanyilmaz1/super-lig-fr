@@ -7,7 +7,6 @@ import { Clock } from "lucide-react";
 import React from "react";
 
 export const LineupPreview = ({ fixture }: { fixture: FixturePreview }) => {
-  console.log("fixture", fixture);
   const isOfficialLineupsAvailable = fixture.metadata?.find(
     (metadata) => metadata.type_id === 572
   )?.values.confirmed;
