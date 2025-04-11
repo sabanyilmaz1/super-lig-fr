@@ -20,6 +20,7 @@ import {
 } from "@/lib/football-api/types/standing";
 import Image from "next/image";
 import { getStanding } from "@/lib/football-api/use-cases/standing";
+import { cn } from "@/lib/utils";
 
 type ColumnConfig = {
   header: string;
@@ -79,10 +80,11 @@ export const DisplayStandingHome = async () => {
   const standing = await getStanding();
   const renderCellContent = (
     column: ColumnConfig,
-    team: Standing
+    team: Standing,
+    position: number
   ): ReactNode => {
     const value = column.accessor(team);
-
+    console.log(position);
     if (column.key === "club" && value && typeof value === "object") {
       return (
         <div className="flex items-center gap-2">
@@ -98,7 +100,26 @@ export const DisplayStandingHome = async () => {
         </div>
       );
     }
-
+    if (column.key === "position" && value && typeof value === "number") {
+      return (
+        <div
+          className={cn(
+            "flex items-center justify-center text-black p-1.5 rounded-md font-bold",
+            position === 1 && "bg-blue-700 text-white",
+            position === 2 && "bg-blue-400 text-white",
+            position === 3 && "bg-red-800 text-white",
+            position === 4 && "bg-amber-400 text-white",
+            (position === 16 ||
+              position === 17 ||
+              position === 18 ||
+              position === 19) &&
+              "bg-red-500 text-white"
+          )}
+        >
+          <p className="">{value}.</p>
+        </div>
+      );
+    }
     return String(value);
   };
 
@@ -119,10 +140,13 @@ export const DisplayStandingHome = async () => {
           <TableBody>
             {standing &&
               standing.map((team) => (
-                <TableRow className="!px-4 !py-3" key={team.participant.id}>
+                <TableRow className="!px-4 md:!py-3" key={team.participant.id}>
                   {tabConfig.map((column) => (
-                    <TableCell key={column.key} className={column.className}>
-                      {renderCellContent(column, team)}
+                    <TableCell
+                      key={column.key}
+                      className={cn(column.className, "py-2")}
+                    >
+                      {renderCellContent(column, team, team.position)}
                     </TableCell>
                   ))}
                 </TableRow>
@@ -142,7 +166,8 @@ export const DisplayStandingFixture = async ({
   const standing = await getStanding();
   const renderCellContent = (
     column: ColumnConfig,
-    team: Standing
+    team: Standing,
+    position: number
   ): ReactNode => {
     const value = column.accessor(team);
 
@@ -160,6 +185,26 @@ export const DisplayStandingFixture = async ({
           <p className="font-semibold text-redsuperlig text-sm">
             {value.name || ""}
           </p>
+        </div>
+      );
+    }
+    if (column.key === "position" && value && typeof value === "number") {
+      return (
+        <div
+          className={cn(
+            "flex items-center justify-center text-black p-1.5 rounded-md font-bold",
+            position === 1 && "bg-blue-700 text-white",
+            position === 2 && "bg-blue-400 text-white",
+            position === 3 && "bg-red-800 text-white",
+            position === 4 && "bg-amber-400 text-white",
+            (position === 16 ||
+              position === 17 ||
+              position === 18 ||
+              position === 19) &&
+              "bg-red-500 text-white"
+          )}
+        >
+          <p className="">{value}.</p>
         </div>
       );
     }
@@ -196,7 +241,7 @@ export const DisplayStandingFixture = async ({
                           : ""
                       }`}
                     >
-                      {renderCellContent(column, team)}
+                      {renderCellContent(column, team, team.position)}
                     </TableCell>
                   ))}
                 </TableRow>
