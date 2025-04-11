@@ -66,7 +66,7 @@ const Footer = () => {
               {sections.map((section, sectionIdx) => (
                 <div key={sectionIdx}>
                   <h3 className="mb-6 font-bold">{section.title}</h3>
-                  <ul className="space-y-4 text-sm text-muted-foreground">
+                  <ul className="space-y-4 text-sm text-white/80">
                     {section.links.map((link, linkIdx) => (
                       <li
                         key={linkIdx}
