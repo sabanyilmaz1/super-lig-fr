@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/table";
 import { Standing } from "@/lib/football-api/types/standing";
 import { getStanding } from "@/lib/football-api/use-cases/standing";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 
 export const DisplayFullStanding = async () => {
@@ -37,17 +38,28 @@ export const DisplayFullStanding = async () => {
                     <TableCellForm
                       key={column.key}
                       standing={item}
-                      className={`${column.width} `}
+                      className={`${column.width}`}
                     />
                   );
                 }
                 if (column.key === "position") {
                   return (
-                    <TableCell key={column.key} className={`${column.width}  `}>
-                      <div>
-                        <span className="text-xs md:text-sm">
-                          {item.position}
-                        </span>
+                    <TableCell key={column.key} className={`${column.width}`}>
+                      <div
+                        className={cn(
+                          "flex items-center justify-center text-black p-1.5 rounded-md font-bold w-10",
+                          item.position === 1 && "bg-blue-700 text-white",
+                          item.position === 2 && "bg-blue-400 text-white",
+                          item.position === 3 && "bg-red-800 text-white",
+                          item.position === 4 && "bg-amber-400 text-white",
+                          (item.position === 16 ||
+                            item.position === 17 ||
+                            item.position === 18 ||
+                            item.position === 19) &&
+                            "bg-red-500 text-white"
+                        )}
+                      >
+                        <p className="">{item.position}.</p>
                       </div>
                     </TableCell>
                   );
@@ -136,7 +148,7 @@ const table = [
   {
     name: "Pos",
     nameMobile: "",
-    width: "w-3 px-0 md:w-11 font-bold text-center",
+    width: "w-3 px-0 md:w-10 font-bold mx-auto",
     key: "position",
   },
   {
