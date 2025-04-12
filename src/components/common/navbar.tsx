@@ -38,7 +38,7 @@ const navbarItems = [
     id: 4,
     name: "RÉSULTATS",
     link: "/results",
-    active: false,
+    active: true,
   },
   {
     id: 5,
