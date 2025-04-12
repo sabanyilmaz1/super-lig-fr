@@ -22,7 +22,6 @@ export const FixtureCardInfo = ({
 
   const referee = fixture.referees?.find((referee) => referee.type_id === 6);
 
-  console.log(fixture);
   return (
     <Link key={fixture.id} scroll={true} href={href}>
       <motion.div
