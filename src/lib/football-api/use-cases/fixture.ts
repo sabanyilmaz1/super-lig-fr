@@ -2,7 +2,7 @@ import { FOOTBALL_SPORTMONK_API_CONSTANTS } from "../constants";
 import { getDataFromFootballApi } from "../get-data";
 import { Fixture, FixturePreview, Round } from "../types/fixture";
 
-const getAllRounds = async () => {
+export const getAllRounds = async () => {
   const rounds = await getDataFromFootballApi(
     `rounds/seasons/${FOOTBALL_SPORTMONK_API_CONSTANTS.SEASON_ID}`,
     ""
@@ -13,14 +13,13 @@ const getAllRounds = async () => {
 const getFixturesByDateRange = async (startDate: string, endDate: string) => {
   const fixtures = await getDataFromFootballApi(
     `fixtures/between/${startDate}/${endDate}`,
-    "participants;scores;state&timezone=Europe/Paris"
+    "participants;scores;state;venue;weatherReport;referees.referee"
   );
   return fixtures as Fixture[];
 };
 
 export const getLastFixtures = async () => {
   const allRounds = await getAllRounds();
-
   let currentRound: Round | undefined = undefined;
   if (allRounds) {
     currentRound = allRounds.find((round) => round.is_current === true);
@@ -36,7 +35,7 @@ export const getLastFixtures = async () => {
     const endingDate = currentRound?.ending_at || "";
     const fixtures = await getFixturesByDateRange(startingDate, endingDate);
     const groupedFixtures = fixtures?.reduce((acc: Fixture[][], fixture) => {
-      const date = fixture.starting_at.split(" ")[0]; // Get just the date part
+      const date = fixture.starting_at.split(" ")[0];
       const existingGroup = acc.find(
         (group) => group[0].starting_at.split(" ")[0] === date
       );
@@ -67,7 +66,7 @@ export const getLastFixtures = async () => {
 export const getFixtureById = async (fixtureId: string) => {
   const fixture = await getDataFromFootballApi(
     `fixtures/${fixtureId}`,
-    "formations;lineups.player;sidelined.sideline.player;metadata;sidelined.sideline.team;participants;venue;state&timezone=Europe/Paris"
+    "formations;lineups.player;sidelined.sideline.player;metadata;sidelined.sideline.team;participants;venue;state"
   );
   return fixture as FixturePreview;
 };

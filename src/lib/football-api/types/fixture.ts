@@ -56,6 +56,9 @@ export interface Fixture {
   starting_at_timestamp: number;
   participants: ParticipantWithMeta[];
   round: Round;
+  venue: Venue | null;
+  weatherreport: WeatherReport | null;
+  referees: Referee[] | null;
 }
 
 export interface FixturePreview {
@@ -223,6 +226,70 @@ export interface Metadata {
     confirmed?: boolean;
     predictable?: boolean;
     extra_time?: boolean;
+  };
+}
+
+export interface RefereeDetails {
+  id: number;
+  sport_id: number;
+  country_id: number;
+  city_id: number | null;
+  common_name: string;
+  firstname: string;
+  lastname: string;
+  name: string;
+  display_name: string;
+  image_path: string;
+  height: number | null;
+  weight: number | null;
+  date_of_birth: string | null;
+  gender: string | null;
+}
+
+export interface Referee {
+  id: number;
+  fixture_id: number;
+  referee_id: number;
+  type_id: number;
+  referee: RefereeDetails;
+}
+
+export interface WeatherReport {
+  id: number;
+  fixture_id: number;
+  venue_id: number;
+  temperature: {
+    day: number;
+    morning: number;
+    evening: number;
+    night: number;
+  };
+  feels_like: {
+    day: number;
+    morning: number;
+    evening: number;
+    night: number;
+  };
+  wind: {
+    speed: number;
+    direction: number;
+  };
+  humidity: string;
+  pressure: number;
+  clouds: string;
+  description: string;
+  icon: string;
+  type: string;
+  metric: string;
+  current: {
+    temp: number;
+    wind: number;
+    clouds: string;
+    humidity: string;
+    pressure: number;
+    direction: number;
+    feels_like: number;
+    description: string;
   };
 }
 
