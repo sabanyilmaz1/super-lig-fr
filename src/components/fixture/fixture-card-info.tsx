@@ -30,7 +30,7 @@ export const FixtureCardInfo = ({
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
         className={`
-        cursor-pointer flex flex-col items-center justify-between px-3 py-2 
+        cursor-pointer flex flex-col items-center justify-between p-2 
         border-2 border-redsuperlig/30 rounded-lg 
         md:flex-row hover:bg-redsuperlig/20 
         hover:scale-105 transition-all duration-300 ease-in-out bg-redsuperlig/10`}
@@ -62,16 +62,16 @@ export const FixtureCardInfo = ({
           </div>
           {/* Referee */}
           <div className="flex justify-center items-center gap-2">
-            <span className=" font-medium ">
+            <span className=" font-medium text-sm ">
               {referee?.referee.name ?? "Pas encore désigné"}
             </span>
             <WhistleIcon />
           </div>
         </div>
         {/* Info */}
-        <div className="flex flex-col items-center text-redsuperlig text-sm md:text-base">
+        <div className="flex md:flex-col flex-row-reverse justify-between gap-3 items-center text-redsuperlig text-sm md:text-base">
           {/* Méteo */}
-          <div className="md:self-end flex items-center gap-2">
+          <div className="md:self-end flex items-center md:gap-2">
             <span className="font-semibold text-black">
               {Math.round(fixture.weatherreport?.temperature.evening || 0)} °C
             </span>
@@ -79,12 +79,13 @@ export const FixtureCardInfo = ({
               <img
                 src={fixture.weatherreport?.icon || ""}
                 alt={fixture.weatherreport?.description || ""}
+                className="w-7 h-7 md:w-9 md:h-9"
               />
             </picture>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1">
             <MapPin className="w-4 h-4" />
-            <span className="font-medium">
+            <span className="font-medium text-xs md:text-base">
               {fixture.venue?.name}, {fixture.venue?.city_name}
             </span>
           </div>
