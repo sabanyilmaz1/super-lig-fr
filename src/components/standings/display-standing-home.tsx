@@ -84,7 +84,6 @@ export const DisplayStandingHome = async () => {
     position: number
   ): ReactNode => {
     const value = column.accessor(team);
-    console.log(position);
     if (column.key === "club" && value && typeof value === "object") {
       return (
         <div className="flex items-center gap-2">

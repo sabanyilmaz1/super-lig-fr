@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { TwitterLogo } from "../icon/twitter";
 
 const sections = [
   {
@@ -39,27 +40,16 @@ const Footer = () => {
                 </Link>
                 <h2 className="text-xl font-semibold">Super Lig France</h2>
               </div>
-              <ul className="flex items-center space-x-6 ">
-                {/* <li className="font-medium hover:text-primary">
-                  <a href="#">
-                    <FaInstagram className="size-6" />
+              <ul className="flex items-center ">
+                <li className="font-medium hover:text-primary">
+                  <a
+                    target="_blank"
+                    href="https://twitter.com/superligfrance0"
+                    className=""
+                  >
+                    <TwitterLogo width={40} height={40} color="text-white" />
                   </a>
                 </li>
-                <li className="font-medium hover:text-primary">
-                  <a href="#">
-                    <FaFacebook className="size-6" />
-                  </a>
-                </li>
-                <li className="font-medium hover:text-primary">
-                  <a href="#">
-                    <FaTwitter className="size-6" />
-                  </a>
-                </li>
-                <li className="font-medium hover:text-primary">
-                  <a href="#">
-                    <FaLinkedin className="size-6" />
-                  </a>
-                </li> */}
               </ul>
             </div>
             <div className="grid grid-cols-2 gap-6 lg:gap-20">

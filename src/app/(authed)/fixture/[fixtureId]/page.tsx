@@ -45,9 +45,6 @@ export default async function FixturePage({
   if (!fixture || !fixture.participants) {
     notFound();
   }
-
-  // console.log(fixture);
-
   return (
     <div id={fixtureId} className="min-h-screen">
       <PageSlugHeader title={`Preview`} />
