@@ -1,13 +1,25 @@
 import { LIVE_STATE, LIVE_STATE_NAME } from "@/lib/football-api/constants";
 import { Fixture } from "@/lib/football-api/types/fixture";
+import { cn } from "@/lib/utils";
 
-export const ScoreOrHour = ({ fixture }: { fixture: Fixture }) => {
+export const ScoreOrHour = ({
+  fixture,
+  isFixture = false,
+}: {
+  fixture: Fixture;
+  isFixture?: boolean;
+}) => {
   const isLive = LIVE_STATE.includes(fixture.state?.developer_name ?? "");
   const matchNotStarted = fixture.state?.developer_name === "NS";
 
   return (
     <div>
-      <div className="flex w-[70px] py-1 px-3 bg-redsuperlig justify-center font-bold text-white rounded-lg text-sm">
+      <div
+        className={cn(
+          "flex w-[70px] py-1 px-3 bg-redsuperlig justify-center font-bold text-white rounded-lg text-sm",
+          isFixture && "w-[80px] md:w-[100px] text-xl md:text-2xl md:py-3 py-2"
+        )}
+      >
         {!matchNotStarted ? (
           <Score fixture={fixture} />
         ) : (
@@ -15,7 +27,11 @@ export const ScoreOrHour = ({ fixture }: { fixture: Fixture }) => {
         )}
       </div>
       {isLive && (
-        <div className="flex items-center justify-center gap-1 mt-1 text-xs font-semibold text-center text-redsuperlig">
+        <div
+          className={cn(
+            "flex items-center justify-center gap-1 mt-1 font-semibold text-center text-redsuperlig"
+          )}
+        >
           <div className="animate-pulse">🔴</div>
           <div>
             LIVE{" "}
@@ -41,7 +57,7 @@ const Score = ({ fixture }: { fixture: Fixture }) => {
     (f) => f.description === "CURRENT" && f.score.participant === "away"
   );
   return (
-    <div className="text-sm font-bold">
+    <div className="font-bold">
       {homeScore?.score.goals} - {awayScore?.score.goals}
     </div>
   );

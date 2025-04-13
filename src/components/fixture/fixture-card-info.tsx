@@ -30,17 +30,13 @@ export const FixtureCardInfo = ({
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
         className={`
-        cursor-pointer flex flex-col items-center justify-between px-3 py-2 
-        border-2 border-redsuperlig/30 rounded-lg 
-        md:flex-row hover:bg-redsuperlig/20 
-        hover:scale-105 transition-all duration-300 ease-in-out bg-redsuperlig/10`}
+        cursor-pointer flex flex-col rounded-2xl shadow-lg hover:bg-redsuperlig/20 px-8 pb-2 pt-4
+        hover:scale-105 transition-all duration-300 ease-in-out bg-gradient-to-r from-red-50 to-red-100 `}
       >
-        {/* Team & referee */}
-        <div className="flex justify-center items-center flex-col gap-4">
-          <div className="flex justify-center items-center gap-4">
-            <span className="justify-end hidden font-medium md:flex w-44">
-              {participantHome?.name}
-            </span>
+        {/* Team */}
+        <div className="grid grid-cols-3 items-center mb-8">
+          {/* Home */}
+          <div>
             <Image
               src={participantHome?.image_path || ""}
               className="w-12 h-12 "
@@ -48,7 +44,13 @@ export const FixtureCardInfo = ({
               width={48}
               height={48}
             />
-            <ScoreOrHour fixture={fixture} />
+            <p className="font-bold mt-4 md:text-xl">{participantHome?.name}</p>
+          </div>
+          <div className="flex justify-center">
+            <ScoreOrHour fixture={fixture} isFixture={true} />
+          </div>
+          {/* Away */}
+          <div className="flex flex-col items-end">
             <Image
               src={participantAway?.image_path || ""}
               className="w-12 h-12 "
@@ -56,35 +58,35 @@ export const FixtureCardInfo = ({
               width={48}
               height={48}
             />
-            <span className="hidden w-40 font-medium md:flex ">
-              {participantAway?.name}
-            </span>
-          </div>
-          {/* Referee */}
-          <div className="flex justify-center items-center gap-2">
-            <span className=" font-medium ">
-              {referee?.referee.name ?? "Pas encore désigné"}
-            </span>
-            <WhistleIcon />
+            <p className="font-bold mt-4 md:text-xl">{participantAway?.name}</p>
           </div>
         </div>
-        {/* Info */}
-        <div className="flex flex-col items-center text-redsuperlig text-sm md:text-base">
-          {/* Méteo */}
-          <div className="md:self-end flex items-center gap-2">
-            <span className="font-semibold text-black">
+
+        {/* Info Sup */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-0">
+          <div>
+            <div className="flex md:justify-start items-center gap-2">
+              <WhistleIcon />
+              <span className=" font-medium text-gray-600 text-xs ">
+                {referee?.referee.name ?? "Pas encore désigné"}
+              </span>
+            </div>
+          </div>
+          <div className="hidden md:flex md:justify-center items-center md:gap-2 text-xs">
+            <span className="text-gray-600">
               {Math.round(fixture.weatherreport?.temperature.evening || 0)} °C
             </span>
             <picture>
               <img
                 src={fixture.weatherreport?.icon || ""}
                 alt={fixture.weatherreport?.description || ""}
+                className="w-7 h-7 md:w-8 md:h-8"
               />
             </picture>
           </div>
-          <div className="flex items-center gap-2">
-            <MapPin className="w-4 h-4" />
-            <span className="font-medium">
+          <div className="flex md:justify-end items-center gap-1">
+            <MapPin className="w-4 h-4 text-red-600" />
+            <span className="text-xs text-gray-600">
               {fixture.venue?.name}, {fixture.venue?.city_name}
             </span>
           </div>
