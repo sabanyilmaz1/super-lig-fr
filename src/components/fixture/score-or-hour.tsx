@@ -29,7 +29,7 @@ export const ScoreOrHour = ({
       {isLive && (
         <div
           className={cn(
-            "flex items-center justify-center gap-1 mt-1 font-semibold text-center text-redsuperlig"
+            "flex items-center justify-center gap-1 mt-1 font-semibold text-center text-redsuperlig text-xs"
           )}
         >
           <div className="animate-pulse">🔴</div>
