@@ -34,7 +34,7 @@ export const FixtureCardInfo = ({
         hover:scale-105 transition-all duration-300 ease-in-out bg-gradient-to-r from-red-50 to-red-100 `}
       >
         {/* Team */}
-        <div className="grid grid-cols-3 items-center mb-8">
+        <div className="grid grid-cols-3 items-center md:mb-2 mb-8">
           {/* Home */}
           <div>
             <Image
