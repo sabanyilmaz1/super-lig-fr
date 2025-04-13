@@ -44,9 +44,12 @@ export const DisplayFullResult = ({
   }
 
   return (
-    <form action={formAction}>
+    <form
+      className="flex flex-col items-center  md:max-w-5xl mx-auto"
+      action={formAction}
+    >
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between w-full">
         <h1 className="text-xl font-extrabold md:text-2xl text-redsuperlig">
           Journée {state.currentRound}
         </h1>
@@ -76,7 +79,7 @@ export const DisplayFullResult = ({
         </Select>
       </div>
       {/* Content */}
-      <div className="flex flex-col gap-4 mt-8">
+      <div className="flex flex-col gap-4 md:gap-6 w-full mt-8">
         {state.data.map((fixture) => (
           <FixtureCardInfo
             key={fixture.id}

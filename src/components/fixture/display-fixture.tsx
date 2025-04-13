@@ -37,7 +37,7 @@ export const DisplayFixture = ({
         selectedDay={selectedDay}
         setSelectedDay={setSelectedDay}
       />
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col md:gap-4 gap-6 md:max-w-4xl">
         {data.groupedFixtures
           .find((fixture) =>
             fixture.some(
@@ -67,21 +67,24 @@ const SelectDate = ({
   selectedDay: string;
   setSelectedDay: (date: string) => void;
 }) => {
+  const year = new Date().getFullYear();
+
   return (
-    <div className="flex gap-2 p-4 overflow-x-auto">
+    <div className="flex gap-4 p-4 overflow-x-auto">
       {dates.map((date) => (
         <Button
           key={date}
           variant={selectedDay === date ? "default" : "outline"}
-          className={`flex-shrink-0 h-16 ${
-            selectedDay === date ? "bg-redsuperlig text-white" : ""
+          className={` h-full hover:bg-red-700/80 hover:text-white ${
+            selectedDay === date ? "bg-red-700 text-white" : ""
           }`}
           onClick={() => setSelectedDay(date)}
         >
-          <div>
-            <div className="text-left">{date.split(" ")[0]}</div>
-            <div className="text-left">
-              {date.split(" ").slice(1).join(" ")}
+          <div className="flex flex-col items-center rounded-xl min-w-[80px] text-xs md:text-sm">
+            <div>{date.split(" ")[0]}</div>
+            <div className=" text-sm md:text-xl">{date.split(" ")[1]}</div>
+            <div>
+              {date.split(" ")[2]} {year}
             </div>
           </div>
         </Button>
