@@ -12,6 +12,7 @@ type Team = {
   placeholder: boolean;
   last_played_at: string;
   website: string;
+  background_color: string;
 };
 
 export const teams: Team[] = [
@@ -29,6 +30,7 @@ export const teams: Team[] = [
     placeholder: false,
     last_played_at: "2025-02-09 10:30:00",
     website: "https://www.kasimpasa.com.tr",
+    background_color: "bg-[#fefefe]/50",
   },
   {
     id: 2811,
@@ -44,6 +46,7 @@ export const teams: Team[] = [
     placeholder: false,
     last_played_at: "2025-02-07 17:00:00",
     website: "https://www.samsunspor.org.tr",
+    background_color: "bg-[#d3d3d3]/50",
   },
   {
     id: 4192,
@@ -59,6 +62,7 @@ export const teams: Team[] = [
     placeholder: false,
     last_played_at: "2025-02-06 17:45:00",
     website: "https://www.gaziantepfk.org",
+    background_color: "bg-[#b99081]/50",
   },
   {
     id: 1041,
@@ -74,6 +78,7 @@ export const teams: Team[] = [
     placeholder: false,
     last_played_at: "2025-02-09 10:30:00",
     website: "https://www.caykurrizespor.org.tr",
+    background_color: "bg-[#2f3a53]/50",
   },
   {
     id: 81,
@@ -89,6 +94,7 @@ export const teams: Team[] = [
     placeholder: false,
     last_played_at: "2025-02-09 16:00:00",
     website: "https://www.antalyaspor.com.tr",
+    background_color: "bg-[#da6e22]/50",
   },
   {
     id: 347,
@@ -104,6 +110,7 @@ export const teams: Team[] = [
     placeholder: false,
     last_played_at: "2025-02-09 13:00:00",
     website: "https://www.alanyaspor.org.tr",
+    background_color: "bg-[#c5c5c6]/50",
   },
   {
     id: 3224,
@@ -119,6 +126,7 @@ export const teams: Team[] = [
     placeholder: false,
     last_played_at: "2025-02-04 15:00:00",
     website: "https://www.eyupspor.org.tr",
+    background_color: "bg-[#ec898b]/50",
   },
   {
     id: 3897,
@@ -134,6 +142,7 @@ export const teams: Team[] = [
     placeholder: false,
     last_played_at: "2025-02-06 17:45:00",
     website: "https://www.goztepe.org.tr",
+    background_color: "bg-[#f2efef]/50",
   },
   {
     id: 88,
@@ -149,6 +158,7 @@ export const teams: Team[] = [
     placeholder: false,
     last_played_at: "2025-02-09 13:00:00",
     website: "https://www.fenerbahce.org",
+    background_color: "bg-[#e6dc6d] text-black",
   },
   {
     id: 13924,
@@ -164,6 +174,7 @@ export const teams: Team[] = [
     placeholder: false,
     last_played_at: "2025-02-05 12:30:00",
     website: "https://www.bodrumspor.com.tr",
+    background_color: "bg-[#5e5d67]/50",
   },
   {
     id: 34,
@@ -179,6 +190,7 @@ export const teams: Team[] = [
     placeholder: false,
     last_played_at: "2025-02-06 13:00:00",
     website: "https://www.galatasaray.org",
+    background_color: "bg-[#dedfdf]/50",
   },
   {
     id: 365,
@@ -194,6 +206,7 @@ export const teams: Team[] = [
     placeholder: false,
     last_played_at: "2025-02-08 16:00:00",
     website: "https://www.sivasspor.org.tr",
+    background_color: "bg-[#9a794d]/50",
   },
   {
     id: 688,
@@ -209,6 +222,7 @@ export const teams: Team[] = [
     placeholder: false,
     last_played_at: "2025-02-05 10:00:00",
     website: "https://www.trabzonspor.org.tr",
+    background_color: "bg-[#a10829]/90 text-white",
   },
   {
     id: 1039,
@@ -224,6 +238,7 @@ export const teams: Team[] = [
     placeholder: false,
     last_played_at: "2025-02-02 10:30:00",
     website: "https://www.adanademirspor.org.tr",
+    background_color: "bg-[#e4aeac]/50",
   },
   {
     id: 554,
@@ -239,6 +254,7 @@ export const teams: Team[] = [
     placeholder: false,
     last_played_at: "2025-02-08 16:00:00",
     website: "https://www.bjk.com.tr",
+    background_color: "bg-[#95352c]/50",
   },
   {
     id: 13833,
@@ -254,6 +270,7 @@ export const teams: Team[] = [
     placeholder: false,
     last_played_at: "2025-02-07 17:00:00",
     website: "https://www.hatayspor.org.tr",
+    background_color: "bg-[#f6d4cd]/50",
   },
   {
     id: 643,
@@ -269,6 +286,7 @@ export const teams: Team[] = [
     placeholder: false,
     last_played_at: "2025-02-08 16:00:00",
     website: "https://www.kayserispor.org.tr",
+    background_color: "bg-[#9ea1a3]/50",
   },
   {
     id: 3702,
@@ -284,6 +302,7 @@ export const teams: Team[] = [
     placeholder: false,
     last_played_at: "2025-02-09 16:00:00",
     website: "https://www.ibasaksehir.com.tr",
+    background_color: "bg-[#b4b5b5]/50",
   },
   {
     id: 2632,
@@ -299,5 +318,6 @@ export const teams: Team[] = [
     placeholder: false,
     last_played_at: "2025-02-08 13:00:00",
     website: "https://www.konyaspor.org.tr",
+    background_color: "bg-[#8a7683]/50",
   },
 ];
