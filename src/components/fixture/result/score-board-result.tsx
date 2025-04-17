@@ -23,8 +23,6 @@ export const ScoreBoardResult = ({ fixture }: ScoreBoardPreviewProps) => {
     (participant) => participant.meta.location === "away"
   );
 
-  console.log(fixture);
-
   return (
     <div className="rounded-b-lg md:rounded-lg md:mb-12 text-white  max-w-4xl mx-auto h-16">
       <div className="flex items-start justify-between gap-0">
@@ -32,7 +30,7 @@ export const ScoreBoardResult = ({ fixture }: ScoreBoardPreviewProps) => {
         <div
           className={cn(
             "flex relative flex-2 items-center md:gap-4 gap-2 w-full h-16",
-            "bg-red-300/60 text-black px-2 md:px-0"
+            "bg-red-300/60 text-black px-2 md:px-0 rounded-br-sm"
           )}
         >
           <div className="md:absolute md:-left-8">
@@ -51,7 +49,7 @@ export const ScoreBoardResult = ({ fixture }: ScoreBoardPreviewProps) => {
               </div>
             )}
             {isMobile && (
-              <div className="text-sm font-bold ">
+              <div className="text-xl font-bold ">
                 {homeTeam?.short_code ??
                   homeTeam?.name.slice(0, 3).toUpperCase()}
               </div>
@@ -64,7 +62,7 @@ export const ScoreBoardResult = ({ fixture }: ScoreBoardPreviewProps) => {
         <div
           className={cn(
             "flex relative flex-2 justify-end items-center  md:gap-4 gap-2 w-full h-16",
-            "bg-red-300/60 text-black px-2 md:px-0"
+            "bg-red-300/60 text-black px-2 md:px-0 rounded-bl-sm"
           )}
         >
           <div className="">
@@ -74,7 +72,7 @@ export const ScoreBoardResult = ({ fixture }: ScoreBoardPreviewProps) => {
               </div>
             )}
             {isMobile && (
-              <div className="text-sm font-bold">
+              <div className="text-xl font-bold">
                 {awayTeam?.short_code ??
                   awayTeam?.name.slice(0, 3).toUpperCase()}
               </div>

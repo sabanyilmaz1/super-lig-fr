@@ -1,6 +1,7 @@
 import { PageSlugHeader } from "@/components/common/header-page";
 import { LineupPreview } from "@/components/fixture/preview/lineup-preview";
 import { MatchInfoPreview } from "@/components/fixture/preview/match-info-preview";
+import { EventResult } from "@/components/fixture/result/event-result";
 import { ScoreBoardResult } from "@/components/fixture/result/score-board-result";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { getResultById } from "@/lib/football-api/use-cases/result";
@@ -43,6 +44,14 @@ export default async function ResultPageByFixtureId({
   if (!fixture || !fixture.participants) {
     notFound();
   }
+
+  const homeId = fixture.participants.find(
+    (participant) => participant.meta.location === "home"
+  )?.id;
+  const awayId = fixture.participants.find(
+    (participant) => participant.meta.location === "away"
+  )?.id;
+
   return (
     <div id={fixtureId} className="min-h-screen">
       <PageSlugHeader title={`Résultat`} />
@@ -61,6 +70,13 @@ export default async function ResultPageByFixtureId({
         <div className="mt-2 hidden md:block md:pb-12">
           <MatchInfoPreview fixture={fixture} />
           <ScoreBoardResult fixture={fixture} />
+          <section>
+            <EventResult
+              events={fixture.events}
+              homeId={homeId}
+              awayId={awayId}
+            />
+          </section>
           {/* Onze ou dernier onze */}
           <div className="flex justify-center gap-4">
             <div className="flex flex-col gap-4 w-full md:max-w-3xl">

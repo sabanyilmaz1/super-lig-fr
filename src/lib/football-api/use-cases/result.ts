@@ -85,7 +85,9 @@ export const getResultsByRound = async (
 export const getResultById = async (fixtureId: string) => {
   const fixture = await getDataFromFootballApi(
     `fixtures/${fixtureId}`,
-    "formations;lineups.player;sidelined.sideline.player;metadata;sidelined.sideline.team;participants;venue;state;scores"
+    `formations;lineups.player;sidelined.sideline.player;
+    metadata;sidelined.sideline.team;participants;venue;
+    state;scores;events.player;events.participant;events.type`
   );
   return fixture as ResultPreview;
 };
