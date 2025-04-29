@@ -6,7 +6,7 @@ import { articles } from "./mock";
 import { MarkdownViewer } from "../common/markdown-viewer";
 export const DisplayArticlesHome = () => {
   return (
-    <Card className="border-2 border-redsuperlig bg-gradient-to-r from-red-700 to-red-500 shadow-lg min-h-[400px] rounded-t-none rounded-b-lg">
+    <Card className="border-2 border-redsuperlig bg-gradient-to-r from-red-700 to-red-500 shadow-lg min-h-[400px] rounded-t-none md:rounded-t-xl rounded-b-lg">
       <CardContent className="mt-6">
         <div className="grid grid-cols-1 gap-3  lg:grid-cols-[700px_auto]">
           {/* Article Principal */}
