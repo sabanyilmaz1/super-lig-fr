@@ -4,7 +4,45 @@ import Link from "next/link";
 import Image from "next/image";
 import { articles } from "./mock";
 import { MarkdownViewer } from "../common/markdown-viewer";
+import { Clock, Newspaper } from "lucide-react";
 export const DisplayArticlesHome = () => {
+  // Bloc when not ready
+  return (
+    <Card className="border-2 border-redsuperlig bg-gradient-to-r from-red-700 to-red-500 shadow-lg h-full max-h-[400px] rounded-t-none md:rounded-t-xl rounded-b-lg">
+      <CardContent className="mt-6 md:mt-0 text-white flex flex-col items-center justify-center h-full">
+        <div className="flex items-center justify-center mb-4">
+          <Clock className="w-8 h-8 mr-2 animate-pulse" />
+          <Newspaper className="w-8 h-8" />
+        </div>
+        <h3 className="text-2xl font-bold mb-3 text-center">
+          Nos articles arrivent bientôt
+        </h3>
+
+        <div className="w-16 h-1 bg-white mb-4 rounded-full"></div>
+
+        <p className="text-center max-w-xl mb-4">
+          Notre équipe travaille activement sur la création de contenu de
+          qualité. Revenez prochainement pour découvrir les dernières actualités
+          et analyses du football turc.
+        </p>
+        <div className="flex items-center justify-center mt-2">
+          <div
+            className="w-2 h-2 bg-white rounded-full mx-1 animate-bounce"
+            style={{ animationDelay: "0ms" }}
+          ></div>
+          <div
+            className="w-2 h-2 bg-white rounded-full mx-1 animate-bounce"
+            style={{ animationDelay: "300ms" }}
+          ></div>
+          <div
+            className="w-2 h-2 bg-white rounded-full mx-1 animate-bounce"
+            style={{ animationDelay: "600ms" }}
+          ></div>
+        </div>
+      </CardContent>
+    </Card>
+  );
+
   return (
     <Card className="border-2 border-redsuperlig bg-gradient-to-r from-red-700 to-red-500 shadow-lg min-h-[400px] rounded-t-none md:rounded-t-xl rounded-b-lg">
       <CardContent className="mt-6">
