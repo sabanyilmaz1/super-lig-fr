@@ -115,15 +115,29 @@ export const Navbar = () => {
               className="font-bold text-white md:hidden bg-redsuperlig"
             >
               <div className="grid gap-4 p-4">
-                {navbarItems.map((item) => (
-                  <Link
-                    onClick={() => setOpen(false)}
-                    key={item.id}
-                    href={item.link}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
+                {navbarItems.map((item) => {
+                  if (!item.active) {
+                    return (
+                      <button
+                        key={item.id}
+                        className="text-xl text-left font-bold cursor-not-allowed text-gray-100 opacity-50"
+                        disabled
+                      >
+                        {item.name}
+                      </button>
+                    );
+                  }
+                  return (
+                    <Link
+                      onClick={() => setOpen(false)}
+                      key={item.id}
+                      href={item.link}
+                      className="text-xl font-bold text-white"
+                    >
+                      {item.name}
+                    </Link>
+                  );
+                })}
               </div>
             </SheetContent>
           </Sheet>
