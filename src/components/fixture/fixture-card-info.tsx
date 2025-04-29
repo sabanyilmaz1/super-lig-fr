@@ -73,16 +73,20 @@ export const FixtureCardInfo = ({
             </div>
           </div>
           <div className="hidden md:flex md:justify-center items-center md:gap-2 text-xs">
-            <span className="text-gray-600">
-              {Math.round(fixture.weatherreport?.temperature.evening || 0)} °C
-            </span>
-            <picture>
-              <img
-                src={fixture.weatherreport?.icon || ""}
-                alt={fixture.weatherreport?.description || ""}
-                className="w-7 h-7 md:w-8 md:h-8"
-              />
-            </picture>
+            {fixture.weatherreport?.temperature.evening && (
+              <span className="text-gray-600">
+                {Math.round(fixture.weatherreport?.temperature.evening || 0)} °C
+              </span>
+            )}
+            {fixture.weatherreport?.icon && (
+              <picture>
+                <img
+                  src={fixture.weatherreport?.icon || ""}
+                  alt={fixture.weatherreport?.description || ""}
+                  className="w-7 h-7 md:w-8 md:h-8"
+                />
+              </picture>
+            )}
           </div>
           <div className="flex md:justify-end items-center gap-1">
             <MapPin className="w-4 h-4 text-red-600" />

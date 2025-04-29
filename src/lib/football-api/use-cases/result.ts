@@ -3,6 +3,7 @@
 
 import { getDataFromFootballApi } from "../get-data";
 import { Fixture, Round } from "../types/fixture";
+import { ResultPreview } from "../types/result";
 import { getAllRounds } from "./fixture";
 
 type ResultState = {
@@ -79,4 +80,14 @@ export const getResultsByRound = async (
     currentRound: parseInt(newCurrentRound as string),
     data: [],
   };
+};
+
+export const getResultById = async (fixtureId: string) => {
+  const fixture = await getDataFromFootballApi(
+    `fixtures/${fixtureId}`,
+    `formations;lineups.player;sidelined.sideline.player;
+    metadata;sidelined.sideline.team;participants;venue;
+    state;scores;events.player;events.participant;events.type`
+  );
+  return fixture as ResultPreview;
 };

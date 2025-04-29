@@ -30,7 +30,7 @@ const Footer = () => {
             <div className="flex w-full max-w-96 shrink flex-col items-center justify-between gap-6 lg:items-start">
               {/* Logo */}
               <div className="flex items-center gap-2 lg:justify-start">
-                <Link href="/home">
+                <Link href="/">
                   <Image
                     src="/logo.png"
                     alt="Superlig"

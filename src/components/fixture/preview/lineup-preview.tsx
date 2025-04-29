@@ -3,10 +3,15 @@ import { CardHeaderOther } from "@/components/common/home-card-header";
 import { Lineup } from "@/components/lineup/lineup";
 import { Card, CardContent } from "@/components/ui/card";
 import { FixturePreview } from "@/lib/football-api/types/fixture";
+import { ResultPreview } from "@/lib/football-api/types/result";
 import { Clock } from "lucide-react";
 import React from "react";
 
-export const LineupPreview = ({ fixture }: { fixture: FixturePreview }) => {
+export const LineupPreview = ({
+  fixture,
+}: {
+  fixture: FixturePreview | ResultPreview;
+}) => {
   const isOfficialLineupsAvailable = fixture.metadata?.find(
     (metadata) => metadata.type_id === 572
   )?.values.confirmed;

@@ -12,8 +12,6 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { ProfileButton } from "./profile-button";
-import { User } from "../../../prisma/generated/client";
 
 const navbarItems = [
   {
@@ -54,12 +52,12 @@ const navbarItems = [
   },
 ];
 
-export const Navbar = ({ user }: { user: User }) => {
+export const Navbar = () => {
   const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-0 z-50 w-full text-white border-b bg-redsuperlig">
       <div className="container flex items-center justify-between h-16 px-4 mx-auto md:px-0">
-        <Link href="/home" className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2">
           <Image src="/logo.png" alt="Superlig" width={80} height={80} />
         </Link>
         <nav className="items-center hidden gap-10 text-sm font-medium md:flex">
@@ -117,19 +115,33 @@ export const Navbar = ({ user }: { user: User }) => {
               className="font-bold text-white md:hidden bg-redsuperlig"
             >
               <div className="grid gap-4 p-4">
-                {navbarItems.map((item) => (
-                  <Link
-                    onClick={() => setOpen(false)}
-                    key={item.id}
-                    href={item.link}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
+                {navbarItems.map((item) => {
+                  if (!item.active) {
+                    return (
+                      <button
+                        key={item.id}
+                        className="text-xl text-left font-bold cursor-not-allowed text-gray-100 opacity-50"
+                        disabled
+                      >
+                        {item.name}
+                      </button>
+                    );
+                  }
+                  return (
+                    <Link
+                      onClick={() => setOpen(false)}
+                      key={item.id}
+                      href={item.link}
+                      className="text-xl font-bold text-white"
+                    >
+                      {item.name}
+                    </Link>
+                  );
+                })}
               </div>
             </SheetContent>
           </Sheet>
-          <ProfileButton user={user} />
+          <div></div>
         </div>
       </div>
     </header>
