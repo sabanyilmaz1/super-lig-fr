@@ -13,9 +13,10 @@ const montserrat = Montserrat({
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Product",
+  "@type": "WebSite",
   name: "Super Lig France",
   image: "/logo.png",
+  url: "https://www.super-lig-france.fr",
   description:
     "Suivez toute l'actualité de la Super Lig turque : résultats, classements, transferts, analyses et news des clubs comme Fenerbahçe, Galatasaray et Beşiktaş.",
 };
