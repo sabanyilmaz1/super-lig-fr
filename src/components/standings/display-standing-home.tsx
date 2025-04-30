@@ -89,7 +89,7 @@ export const DisplayStandingHome = async () => {
         <div className="flex items-center gap-2">
           <Image
             src={value.image || ""}
-            alt={value.name || ""}
+            alt={`Logo du club ${value.name}`}
             width={20}
             height={20}
             className="w-5 h-5 object-contain"
@@ -105,14 +105,14 @@ export const DisplayStandingHome = async () => {
           className={cn(
             "flex items-center justify-center text-black p-1.5 rounded-md font-bold",
             position === 1 && "bg-blue-700 text-white",
-            position === 2 && "bg-blue-400 text-white",
+            position === 2 && "bg-blue-400 text-black",
             position === 3 && "bg-red-800 text-white",
-            position === 4 && "bg-amber-400 text-white",
+            position === 4 && "bg-amber-400 text-black",
             (position === 16 ||
               position === 17 ||
               position === 18 ||
               position === 19) &&
-              "bg-red-500 text-white"
+              "bg-red-600 text-white"
           )}
         >
           <p className="">{value}.</p>

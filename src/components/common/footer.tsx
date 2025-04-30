@@ -45,9 +45,12 @@ const Footer = () => {
                   <a
                     target="_blank"
                     href="https://twitter.com/superligfrance0"
-                    className=""
+                    className="inline-flex items-center"
+                    rel="noopener noreferrer"
+                    aria-label="Suivez-nous sur Twitter"
                   >
                     <TwitterLogo width={40} height={40} color="text-white" />
+                    <span className="sr-only">Twitter</span>
                   </a>
                 </li>
               </ul>
