@@ -49,14 +49,14 @@ export const DisplayFullStanding = async () => {
                         className={cn(
                           "flex items-center justify-center text-black p-1.5 rounded-md font-bold w-10",
                           item.position === 1 && "bg-blue-700 text-white",
-                          item.position === 2 && "bg-blue-400 text-white",
+                          item.position === 2 && "bg-blue-400 text-black",
                           item.position === 3 && "bg-red-800 text-white",
-                          item.position === 4 && "bg-amber-400 text-white",
+                          item.position === 4 && "bg-amber-400 text-black",
                           (item.position === 16 ||
                             item.position === 17 ||
                             item.position === 18 ||
                             item.position === 19) &&
-                            "bg-red-500 text-white"
+                            "bg-red-600 text-white"
                         )}
                       >
                         <p className="">{item.position}.</p>
@@ -77,7 +77,7 @@ export const DisplayFullStanding = async () => {
                         item.participant.image_path && (
                           <Image
                             src={item.participant.image_path}
-                            alt={item.participant.name}
+                            alt={`Logo du club ${item.participant.name}`}
                             width={32}
                             height={32}
                             className="w-8 h-8 object-contain"
