@@ -11,6 +11,15 @@ const montserrat = Montserrat({
   subsets: ["latin"],
 });
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: "Super Lig France",
+  image: "/logo.png",
+  description:
+    "Suivez toute l'actualité de la Super Lig turque : résultats, classements, transferts, analyses et news des clubs comme Fenerbahçe, Galatasaray et Beşiktaş.",
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.super-lig-france.fr"),
   title: "Super Lig France - L'actualité du championnat turc de football",
@@ -79,6 +88,10 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="fr">
         <body className={`${montserrat.variable}`}>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          />
           <div>
             <ClubsHeader />
             <Navbar />
