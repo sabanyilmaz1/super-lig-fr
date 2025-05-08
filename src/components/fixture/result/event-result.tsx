@@ -1,7 +1,4 @@
 "use client";
-import { BallIcon } from "@/components/icon/ball";
-import SubstitutionIcon from "@/components/icon/substitution";
-import { YellowCardIcon } from "@/components/icon/yellow-card";
 import { Badge } from "@/components/ui/badge";
 import { EVENT_TYPE_NAME } from "@/lib/football-api/constants";
 import { Event } from "@/lib/football-api/types/result";
@@ -51,7 +48,9 @@ const EventItem = ({ event }: { event: Event }) => {
     [EVENT_TYPE_NAME.YELLOWCARD]: EventYellowCardItem,
     [EVENT_TYPE_NAME.REDCARD]: EventRedCardItem,
     [EVENT_TYPE_NAME.SUBSTITUTION]: EventSubstitutionItem,
-    [EVENT_TYPE_NAME.VAR_CARD]: EventVarCardItem,
+    [EVENT_TYPE_NAME.PENALTY]: EventPenaltyItem,
+    [EVENT_TYPE_NAME.MISSED_PENALTY]: EventMissedPenaltyItem,
+    [EVENT_TYPE_NAME.YELLOWREDCARD]: EventRedCardItem,
   };
 
   const Component =
@@ -78,7 +77,13 @@ const EventGoalItem = ({ event }: { event: Event }) => {
   return (
     <div className="flex items-center gap-2">
       <EventMinuteItem event={event} />
-      <BallIcon className="w-4 h-4" />
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="https://my.sportmonks.com/img/events/goal.svg"
+        alt="yellow card"
+        width={16}
+        height={16}
+      />
       <EventNameItem event={event} />
       <Badge
         className=" h-4 text-[10px] border-2 border-redsuperlig/45 text-redsuperlig font-semibold px-2 w-9"
@@ -94,9 +99,13 @@ const EventYellowCardItem = ({ event }: { event: Event }) => {
   return (
     <div className="flex items-center gap-2">
       <EventMinuteItem event={event} />
-      <div className="w-4 flex justify-end">
-        <YellowCardIcon />
-      </div>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="https://my.sportmonks.com/img/events/yellowcard.svg"
+        alt="yellow card"
+        width={14}
+        height={14}
+      />
       <EventNameItem event={event} />
     </div>
   );
@@ -106,6 +115,13 @@ const EventRedCardItem = ({ event }: { event: Event }) => {
   return (
     <div className="flex items-center gap-2">
       <EventMinuteItem event={event} />
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="https://my.sportmonks.com/img/events/redcard.svg"
+        alt="yellow card"
+        width={20}
+        height={20}
+      />
       <EventNameItem event={event} />
     </div>
   );
@@ -115,20 +131,59 @@ const EventSubstitutionItem = ({ event }: { event: Event }) => {
   return (
     <div className="flex items-end gap-2">
       <EventMinuteItem event={event} />
-      <div className="w-4 flex justify-end">
-        <SubstitutionIcon />
-      </div>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="https://my.sportmonks.com/img/onboarding/Sub_in.svg"
+        alt="yellow card"
+        width={20}
+        height={20}
+      />
       <EventNameItem event={event} />
       <span className="text-[10px]">({event.related_player_name})</span>
     </div>
   );
 };
 
-const EventVarCardItem = ({ event }: { event: Event }) => {
+const EventPenaltyItem = ({ event }: { event: Event }) => {
   return (
     <div className="flex items-center gap-2">
-      <EventNameItem event={event} />
       <EventMinuteItem event={event} />
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="https://my.sportmonks.com/img/events/yellowcard.svg"
+        alt="yellow card"
+        width={12}
+        height={12}
+      />
+      <div className="flex items-center gap-1">
+        <EventNameItem event={event} />
+        <span className="text-[10px]">(P)</span>
+      </div>
+      <Badge
+        className=" h-4 text-[10px] border-2 border-redsuperlig/45 text-redsuperlig font-semibold px-2 w-9"
+        variant="outline"
+      >
+        {event.result}
+      </Badge>
+    </div>
+  );
+};
+
+const EventMissedPenaltyItem = ({ event }: { event: Event }) => {
+  return (
+    <div className="flex items-center gap-2">
+      <EventMinuteItem event={event} />
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="https://my.sportmonks.com/img/events/missed_penalty.svg"
+        alt="missed penalty"
+        width={12}
+        height={12}
+      />
+      <div className="flex items-center gap-1">
+        <EventNameItem event={event} />
+        <span className="text-[10px]">(P)</span>
+      </div>
     </div>
   );
 };

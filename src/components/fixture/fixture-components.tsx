@@ -31,30 +31,32 @@ export const FixtureDisplayParticipants = ({
     <div>
       {isHome && (
         <div className="flex items-center justify-start gap-2 md:w-24">
-          <p className="font-extrabold uppercase text-end">
+          <p className="font-extrabold uppercase text-end max-w-10 w-full">
             {participantHome?.name.slice(0, 3)}
           </p>
-          <Image
-            src={participantHome?.image_path ?? ""}
-            alt={participantHome?.name ?? ""}
-            width={32}
-            height={32}
-            className="w-8 h-8 object-contain"
-          />
+          <div className="flex justify-end">
+            <Image
+              src={participantHome?.image_path ?? ""}
+              alt={participantHome?.name ?? ""}
+              width={32}
+              height={32}
+              className="w-8 h-8"
+            />
+          </div>
         </div>
       )}
       {!isHome && (
         <div className="flex items-center justify-end gap-2 md:w-24">
-          <div className="flex items-center gap-2">
+          <div className="flex items-end gap-2">
             <Image
               src={participantAway?.image_path ?? ""}
               alt={participantAway?.name ?? ""}
               width={32}
               height={32}
-              className="w-8 h-8 object-contain"
+              className="w-8 h-8"
             />
           </div>
-          <p className="font-extrabold uppercase text-start">
+          <p className="font-extrabold uppercase text-start max-w-10 w-full">
             {participantAway?.name.slice(0, 3)}
           </p>
         </div>
