@@ -1,7 +1,7 @@
 import { PageSlugHeader } from "@/components/common/header-page";
-import { LineupPreview } from "@/components/fixture/preview/lineup-preview";
 import { MatchInfoPreview } from "@/components/fixture/preview/match-info-preview";
 import { EventResult } from "@/components/fixture/result/event-result";
+import { LineupResult } from "@/components/fixture/result/lineup-result";
 import { ScoreBoardResult } from "@/components/fixture/result/score-board-result";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { getResultById } from "@/lib/football-api/use-cases/result";
@@ -66,34 +66,26 @@ export default async function ResultPageByFixtureId({
             Retour
           </Link>
         </div>
-        {/* Desktop */}
-        <div className="mt-2 hidden md:block md:pb-12">
+        <div className="mt-2 ">
           <MatchInfoPreview fixture={fixture} />
           <ScoreBoardResult fixture={fixture} />
-          <section>
-            <EventResult
-              events={fixture.events}
-              homeId={homeId}
-              awayId={awayId}
-            />
-          </section>
-          {/* Onze ou dernier onze */}
-          <div className="flex justify-center gap-4">
-            <div className="flex flex-col gap-4 w-full md:max-w-3xl">
-              <LineupPreview fixture={fixture} />
-            </div>
-          </div>
-        </div>
-        {/* Mobile */}
-        <div className="mt-2 block md:hidden">
-          <MatchInfoPreview fixture={fixture} />
-          <ScoreBoardResult fixture={fixture} />
-          <Tabs defaultValue="lineup" className="mt-4">
+          <Tabs defaultValue="lineup" className="mt-12 md:max-w-3xl mx-auto">
             <TabsList className="mb-2">
-              <TabsTrigger value="lineup">Composition</TabsTrigger>
+              <TabsTrigger value="events">Résumé</TabsTrigger>
+              <TabsTrigger value="score">Stats</TabsTrigger>
+              <TabsTrigger value="lineup">Équipe</TabsTrigger>
+              <TabsTrigger value="notes">Notes</TabsTrigger>
+              <TabsTrigger value="comments">Commentaires</TabsTrigger>
             </TabsList>
+            <TabsContent value="events">
+              <EventResult
+                events={fixture.events}
+                homeId={homeId}
+                awayId={awayId}
+              />
+            </TabsContent>
             <TabsContent value="lineup">
-              <LineupPreview fixture={fixture} />
+              <LineupResult fixture={fixture} />
             </TabsContent>
           </Tabs>
         </div>

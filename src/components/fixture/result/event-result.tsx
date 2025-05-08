@@ -1,5 +1,6 @@
 "use client";
-import { Badge } from "@/components/ui/badge";
+import { CardHeaderOther } from "@/components/common/home-card-header";
+import { Card, CardContent } from "@/components/ui/card";
 import { EVENT_TYPE_NAME } from "@/lib/football-api/constants";
 import { Event } from "@/lib/football-api/types/result";
 import React from "react";
@@ -12,33 +13,31 @@ type EventResultProps = {
 
 export const EventResult = ({ events, homeId, awayId }: EventResultProps) => {
   if (!events) return null;
-
-  console.log("events", events);
   const homeEvents = events.filter((event) => event.participant?.id === homeId);
   const awayEvents = events.filter((event) => event.participant?.id === awayId);
 
-  console.log("homeEvents", homeEvents);
-  console.log("awayEvents", awayEvents);
-
   return (
-    <div className="border-2 border-redsuperlig font-normal rounded-md flex items-start justify-between px-10 max-w-2xl mx-auto py-4 text-sm">
-      {/* Home Events */}
-      <div className="space-y-1">
-        {homeEvents
-          .sort((a, b) => a.minute - b.minute)
-          .map((event) => (
-            <EventItem key={event.id} event={event} />
-          ))}
-      </div>
-      {/* Away Events */}
-      <div className="space-y-1">
-        {awayEvents
-          .sort((a, b) => a.minute - b.minute)
-          .map((event) => (
-            <EventItem key={event.id} event={event} />
-          ))}
-      </div>
-    </div>
+    <Card className="">
+      <CardHeaderOther title="Résumé" />
+      <CardContent className="font-normal flex items-start justify-between py-4 text-sm px-2 md:px-6">
+        {/* Home Events */}
+        <div className="space-y-1">
+          {homeEvents
+            .sort((a, b) => a.minute - b.minute)
+            .map((event) => (
+              <EventItem key={event.id} event={event} />
+            ))}
+        </div>
+        {/* Away Events */}
+        <div className="space-y-1">
+          {awayEvents
+            .sort((a, b) => a.minute - b.minute)
+            .map((event) => (
+              <EventItem key={event.id} event={event} />
+            ))}
+        </div>
+      </CardContent>
+    </Card>
   );
 };
 
@@ -47,20 +46,20 @@ const EventItem = ({ event }: { event: Event }) => {
     [EVENT_TYPE_NAME.GOAL]: EventGoalItem,
     [EVENT_TYPE_NAME.YELLOWCARD]: EventYellowCardItem,
     [EVENT_TYPE_NAME.REDCARD]: EventRedCardItem,
-    [EVENT_TYPE_NAME.SUBSTITUTION]: EventSubstitutionItem,
     [EVENT_TYPE_NAME.PENALTY]: EventPenaltyItem,
     [EVENT_TYPE_NAME.MISSED_PENALTY]: EventMissedPenaltyItem,
     [EVENT_TYPE_NAME.YELLOWREDCARD]: EventRedCardItem,
   };
 
-  const Component =
-    EventItemListComponent[
-      event.type?.developer_name as keyof typeof EventItemListComponent
-    ];
+  const eventType = event.type
+    ?.developer_name as keyof typeof EventItemListComponent;
+  const Component = EventItemListComponent[eventType];
+
+  if (!Component) return null;
 
   return (
-    <div className="flex items-center justify-start gap-2 text-left text-xs">
-      {Component && <Component event={event} />}
+    <div className="flex items-center justify-start gap-2 text-left text-xs md:text-sm">
+      <Component event={event} />
     </div>
   );
 };
@@ -81,16 +80,10 @@ const EventGoalItem = ({ event }: { event: Event }) => {
       <img
         src="https://my.sportmonks.com/img/events/goal.svg"
         alt="yellow card"
-        width={16}
-        height={16}
+        width={14}
+        height={14}
       />
       <EventNameItem event={event} />
-      <Badge
-        className=" h-4 text-[10px] border-2 border-redsuperlig/45 text-redsuperlig font-semibold px-2 w-9"
-        variant="outline"
-      >
-        {event.result}
-      </Badge>
     </div>
   );
 };
@@ -127,44 +120,21 @@ const EventRedCardItem = ({ event }: { event: Event }) => {
   );
 };
 
-const EventSubstitutionItem = ({ event }: { event: Event }) => {
-  return (
-    <div className="flex items-end gap-2">
-      <EventMinuteItem event={event} />
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="https://my.sportmonks.com/img/onboarding/Sub_in.svg"
-        alt="yellow card"
-        width={20}
-        height={20}
-      />
-      <EventNameItem event={event} />
-      <span className="text-[10px]">({event.related_player_name})</span>
-    </div>
-  );
-};
-
 const EventPenaltyItem = ({ event }: { event: Event }) => {
   return (
     <div className="flex items-center gap-2">
       <EventMinuteItem event={event} />
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="https://my.sportmonks.com/img/events/yellowcard.svg"
+        src="https://my.sportmonks.com/img/events/goal.svg"
         alt="yellow card"
-        width={12}
-        height={12}
+        width={14}
+        height={14}
       />
       <div className="flex items-center gap-1">
         <EventNameItem event={event} />
         <span className="text-[10px]">(P)</span>
       </div>
-      <Badge
-        className=" h-4 text-[10px] border-2 border-redsuperlig/45 text-redsuperlig font-semibold px-2 w-9"
-        variant="outline"
-      >
-        {event.result}
-      </Badge>
     </div>
   );
 };
