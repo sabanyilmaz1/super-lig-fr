@@ -12,6 +12,8 @@ import {
 import { Metadata } from "next";
 import { Suspense } from "react";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Super Lig France - Classement",
   description: "Suivez le classement de la Süper Lig",
