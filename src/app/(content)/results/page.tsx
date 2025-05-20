@@ -2,6 +2,7 @@ import { PageHeader } from "@/components/common/header-page";
 import { DisplayFullResult } from "@/components/fixture/display-full-result";
 import { getLastResults } from "@/lib/football-api/use-cases/result";
 import { Metadata } from "next";
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Super Lig France - Résultats",
