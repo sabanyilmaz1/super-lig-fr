@@ -26,10 +26,12 @@ export const getLastResults = async () => {
   if (allRounds) {
     currentRound = allRounds.find((round) => round.is_current === true);
     if (currentRound) {
-      const intRound = parseInt(currentRound?.name || "0");
-      currentRound = allRounds.find(
-        (round) => parseInt(round.name) === intRound - 1
-      );
+      if (!currentRound.finished === true) {
+        const intRound = parseInt(currentRound?.name || "0");
+        currentRound = allRounds.find(
+          (round) => parseInt(round.name) === intRound - 1
+        );
+      }
     }
     const currentRoundName = currentRound?.name || "";
     const startingDate = currentRound?.starting_at || "";
