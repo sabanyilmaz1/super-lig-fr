@@ -4,8 +4,6 @@ import { Fixture } from "@/lib/football-api/types/fixture";
 import { getLastFixtures } from "@/lib/football-api/use-cases/fixture";
 import { Suspense } from "react";
 
-export const dynamic = "force-dynamic";
-
 export async function generateMetadata() {
   const data = await getLastFixtures();
   return {
